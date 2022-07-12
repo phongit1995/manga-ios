@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "377861144089",
+    "project_id": "mangareaderandroid2",
+    "storage_bucket": "mangareaderandroid2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377861144089:android:db3ae3e73a4e5ecf6bf488",
+        "android_client_info": {
+          "package_name": "manga.reader.best.manga.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377861144089-mk81qmmd6ekhe9fpb8i48vlen21l6n9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUaLF4hHCtExdlVe6fQ2hd1CYe-JtfVFQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377861144089-mk81qmmd6ekhe9fpb8i48vlen21l6n9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

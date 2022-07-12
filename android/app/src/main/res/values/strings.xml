@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Manga Reader</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">_tZEzSXalQxXWnrrH3dhWaV_5OtOWhtzrxi_b</string>
+</resources>

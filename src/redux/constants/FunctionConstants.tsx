@@ -1,0 +1,6 @@
+export const DARKMODE_TYPE = 'DARKMODE_TYPE';
+export const BRIGHTNESS_TYPE = 'BRIGHTNESS_TYPE';
+export const NETWORK_TYPE = 'NETWORK_TYPE';
+export const PREMIUM_TYPE = 'PREMIUM_TYPE';
+export const TURN_TYPE = 'TURN_TYPE';
+export const TUTORIAL_TYPE = 'TUTORIAL_TYPE';
