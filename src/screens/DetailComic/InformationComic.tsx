@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 13,
         textAlign: 'center',
-        fontFamily: 'averta',
+        fontFamily: 'Averta',
         marginTop: 5
     },
     containerBtn: {

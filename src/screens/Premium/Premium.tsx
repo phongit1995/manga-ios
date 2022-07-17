@@ -206,16 +206,16 @@ export default function Premium() {
                 </View>
                 <View style={{ alignItems: 'center', flexDirection: 'row', justifyContent: 'center', marginTop: 20 }}>
               
-                        <Text style={[styles.txtG, { fontSize: 14, fontFamily: 'averta' ,textAlign:'center'}]}>Recurring Billing, cancel anytime</Text>
+                        <Text style={[styles.txtG, { fontSize: 14, fontFamily: 'Averta' ,textAlign:'center'}]}>Recurring Billing, cancel anytime</Text>
                   
                 </View>
                 <View style={{ marginHorizontal: 15, marginVertical: 10 }}>
-                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'averta' }]}>- The subscription renews automatically at the end of each period feach week, month, 6 months, year, or otherwise) until you cancel.</Text>
-                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'averta' }]}>- Payment will be charged to your Google Play Store account at confirmation of purchase (after you accept by single-touch identification, facial recognition, or otherwise the subscription terms on the pop-up screen provided by Google).</Text>
-                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'averta' }]}>- You can cancel the subscription anytime by turning off auto-renewal through your Account settings.</Text>
-                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'averta' }]}>- To avoid being charged, cancel the subscription in your Account settings at least 24 hours before the end of the current subscription period.</Text>
-                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'averta' }]}>- You alone can manage your subscription. Learn more about managing subscriptions (and how to cancel them) on Google's support page.</Text>
-                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'averta' }]}>- If you purchased a subscription through the Google Play Store and are eligible for a refund, you'll have to request it directly from Google. To request a refund, follow these instructions from the Google's support page.</Text>
+                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'Averta' }]}>- The subscription renews automatically at the end of each period feach week, month, 6 months, year, or otherwise) until you cancel.</Text>
+                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'Averta' }]}>- Payment will be charged to your Google Play Store account at confirmation of purchase (after you accept by single-touch identification, facial recognition, or otherwise the subscription terms on the pop-up screen provided by Google).</Text>
+                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'Averta' }]}>- You can cancel the subscription anytime by turning off auto-renewal through your Account settings.</Text>
+                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'Averta' }]}>- To avoid being charged, cancel the subscription in your Account settings at least 24 hours before the end of the current subscription period.</Text>
+                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'Averta' }]}>- You alone can manage your subscription. Learn more about managing subscriptions (and how to cancel them) on Google's support page.</Text>
+                    <Text style={[styles.txtG, { fontSize: 12, fontFamily: 'Averta' }]}>- If you purchased a subscription through the Google Play Store and are eligible for a refund, you'll have to request it directly from Google. To request a refund, follow these instructions from the Google's support page.</Text>
                 </View>
 
             </View>

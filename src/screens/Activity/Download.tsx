@@ -109,7 +109,7 @@ const Download = ({ colorBorder, showAlert, showAlertFaile, isDark, color_, colo
                             resizeMode="contain"
                             style={styles.tinyicon}
                             source={icon}></FastImage>
-                        <Text style={[{ textAlign: "center", color: '#5c6b73', fontFamily: 'averta' }, { color: color }]}>You have not downloaded any stories</Text>
+                        <Text style={[{ textAlign: "center", color: '#5c6b73', fontFamily: 'Averta' }, { color: color }]}>You have not downloaded any stories</Text>
                     </View> :
                     <View style={styles.containerList}>
                         {/* <View style={{

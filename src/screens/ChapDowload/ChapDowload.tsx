@@ -150,7 +150,7 @@ const ChapDowload = () => {
                             resizeMode="contain"
                             style={styles.tinyicon}
                             source={icon}></FastImage>
-                        <Text style={[{ textAlign: "center", color: '#5c6b73', fontFamily: 'averta' }, { color: color }]}>You have not download Chapter</Text>
+                        <Text style={[{ textAlign: "center", color: '#5c6b73', fontFamily: 'Averta' }, { color: color }]}>You have not download Chapter</Text>
                     </View> :
                     <View >
 

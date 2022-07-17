@@ -139,7 +139,7 @@ const History = ({ colorBorder, showAlert, showAlertFaile, color_, color, color_
                                 resizeMode="contain"
                                 style={styles.tinyicon}
                                 source={icon}></FastImage>
-                            <Text style={[{ textAlign: "center", color: '#5c6b73', fontFamily: 'averta' }, { color: color }]}>You have not history any stories</Text>
+                            <Text style={[{ textAlign: "center", color: '#5c6b73', fontFamily: 'Averta' }, { color: color }]}>You have not history any stories</Text>
                         </View> :
                         <View style={styles.containerList}>
 
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     txt: {
         textAlign: "center",
         color: '#adb5bd',
-        fontFamily: 'averta'
+        fontFamily: 'Averta'
     },
     containerNoSearch: {
         flex: 1,

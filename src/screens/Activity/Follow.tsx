@@ -118,7 +118,7 @@ const Follow = ({ colorBorder, showAlert, showAlertFaile, isDark, color_, color,
                             resizeMode="contain"
                             style={styles.tinyicon}
                             source={icon}></FastImage>
-                        <Text style={[{ textAlign: "center", fontFamily: 'averta' }, {
+                        <Text style={[{ textAlign: "center", fontFamily: 'Averta' }, {
                             color: color
                         }]}>You have not followed any stories</Text>
                     </View> :
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     txt: {
         textAlign: "center",
         color: '#adb5bd',
-        fontFamily: 'averta'
+        fontFamily: 'Averta'
     },
     containerNoSearch: {
         flex: 1,

@@ -305,7 +305,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 15,
         textAlign: 'center',
-        fontFamily: 'averta',
+        fontFamily: 'Averta',
     },
     txt: {
         color: '#fff',

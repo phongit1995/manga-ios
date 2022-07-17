@@ -15,7 +15,7 @@ const Header: FunctionComponent<any> = ({color____,color___}) => {
                 <AntDesign name="arrowleft" size={25} color={color____} />
             </TouchableOpacity>
             <View >
-                <Text style={{ fontSize: 22, fontFamily: 'averta', color: color____ }}>Chapter</Text>
+                <Text style={{ fontSize: 22, fontFamily: 'Averta', color: color____ }}>Chapter</Text>
             </View>
             <TouchableOpacity
                 onPress={() => {

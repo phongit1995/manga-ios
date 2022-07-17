@@ -22,9 +22,11 @@
 		6FE1F1E5688E4A43A8147613 /* libPods-comic-comicTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386E7C6A273507CE013972A /* libPods-comic-comicTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8DC231AD0891986A1199BC66 /* libPods-comic-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0E8386039CCEF9696A19E0 /* libPods-comic-tvOSTests.a */; };
+		ADE8053DA6F74E74975E0A05 /* Averta-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C0C689C04C3E491FBF035FF4 /* Averta-Regular.otf */; };
 		FA20781828805B0F0059DD3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA20781728805B0E0059DD3B /* GoogleService-Info.plist */; };
 		FAAA63C82883B6AB00591F48 /* Averta-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAAA63C62883B6AB00591F48 /* Averta-Bold.otf */; };
 		FAAA63C92883B6AB00591F48 /* Averta.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAAA63C72883B6AB00591F48 /* Averta.otf */; };
+		FAAA63CB2883BE2600591F48 /* www in Resources */ = {isa = PBXBuildFile; fileRef = FAAA63CA2883BE2600591F48 /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,7 @@
 		91ABDB8A8A4A482D957C2C5A /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		A01976A459314983A7E2A106 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		AF2E68783A92466484DB8256 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		C0C689C04C3E491FBF035FF4 /* Averta-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Averta-Regular.otf"; path = "../assets/fonts/Averta-Regular.otf"; sourceTree = "<group>"; };
 		C30563E032E7437BE97D95B9 /* Pods-comic-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comic-tvOS.release.xcconfig"; path = "Target Support Files/Pods-comic-tvOS/Pods-comic-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		C57F575AE6CAEC06D82A373E /* libPods-comic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-comic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D8EB2288B245F7A799D21E /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		FA20781728805B0E0059DD3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAAA63C62883B6AB00591F48 /* Averta-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Averta-Bold.otf"; path = "../assets/fonts/Averta-Bold.otf"; sourceTree = "<group>"; };
 		FAAA63C72883B6AB00591F48 /* Averta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Averta.otf; path = ../assets/fonts/Averta.otf; sourceTree = "<group>"; };
+		FAAA63CA2883BE2600591F48 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../android/app/src/main/assets/www; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 		13B07FAE1A68108700A75B9A /* comic */ = {
 			isa = PBXGroup;
 			children = (
+				FAAA63CA2883BE2600591F48 /* www */,
 				FA20781728805B0E0059DD3B /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -246,6 +251,7 @@
 				669FCC06DF59428ABFCC5A98 /* SimpleLineIcons.ttf */,
 				89E4C82275114D7CB40C1C88 /* Zocial.ttf */,
 				3C0E85F8958945FA95360D28 /* Montserrat-Light.otf */,
+				C0C689C04C3E491FBF035FF4 /* Averta-Regular.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -347,7 +353,9 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 4YMZR83M85;
 						LastSwiftMigration = 1120;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -393,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAAA63CB2883BE2600591F48 /* www in Resources */,
 				FAAA63C82883B6AB00591F48 /* Averta-Bold.otf in Resources */,
 				FAAA63C92883B6AB00591F48 /* Averta.otf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
@@ -400,6 +409,7 @@
 				3D9CB5B73221467FA381A24C /* Nunito-Bold.ttf in Resources */,
 				6FAE62B9C80D4E5FA9C9B6AD /* Montserrat-Light.otf in Resources */,
 				FA20781828805B0F0059DD3B /* GoogleService-Info.plist in Resources */,
+				ADE8053DA6F74E74975E0A05 /* Averta-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,7 +809,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4YMZR83M85;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = comic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -808,8 +821,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = manga.reader.com.top.manga;
 				PRODUCT_NAME = comic;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -830,7 +844,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = manga.reader.com.top.manga;
 				PRODUCT_NAME = comic;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -61,7 +61,7 @@ const Item: FunctionComponent<any> = ({index,dataTotleChap, page, listChapRead, 
                 <View style={styles.Chapter_}>
                     <Text style={[styles.name, { color: isRead ? '#f77f00' : color____ }]} numberOfLines={2}>{item?.index}. {item?.name}</Text>
                     <Text style={[{
-                        fontFamily: 'averta',
+                        fontFamily: 'Averta',
                         fontSize: 13,
                         color: '#5c6b73',
 
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 14,
         color: '#000',
-        fontFamily: 'averta',
+        fontFamily: 'Averta',
     },
     Chapter_: {
         flexDirection: 'column',

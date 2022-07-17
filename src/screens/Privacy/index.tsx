@@ -118,7 +118,7 @@ const Privacy = () => {
     const classesStyles = {
         body: {
 
-            fontFamily: 'averta',
+            fontFamily: 'Averta',
 
 
         },

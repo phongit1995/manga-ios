@@ -111,7 +111,7 @@ export default function ListComent({ color__, color_____, isDark }) {
                                     resizeMode="contain"
                                     style={styles.tinyicon}
                                     source={icon}></FastImage>
-                                <Text style={[{ textAlign: "center", fontFamily: 'averta', marginTop: 10, fontSize: 16 }, {
+                                <Text style={[{ textAlign: "center", fontFamily: 'Averta', marginTop: 10, fontSize: 16 }, {
                                     color: color__
                                 }]}>No Data</Text>
                             </View>

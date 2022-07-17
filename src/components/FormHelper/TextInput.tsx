@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     txterr: {
 
         fontSize: 12,
-        fontFamily: 'averta',
+        fontFamily: 'Averta',
         fontWeight: 'normal',
         color: '#000',
     }

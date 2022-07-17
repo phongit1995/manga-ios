@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   modalText: {
     marginVertical: 10,
     color: '#000',
-    fontFamily: 'averta',
+    fontFamily: 'Averta',
     textAlign: "center"
   },
   modalTitle: {

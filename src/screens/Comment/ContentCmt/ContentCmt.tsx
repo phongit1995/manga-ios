@@ -130,7 +130,7 @@ export default function ContentCmt({ color_____, color_, color__, idManga, statu
                                 resizeMode="contain"
                                 style={styles.tinyicon}
                                 source={icon}></FastImage>
-                            <Text style={[{ textAlign: "center", fontFamily: 'averta', marginTop: 5 }, {
+                            <Text style={[{ textAlign: "center", fontFamily: 'Averta', marginTop: 5 }, {
                                 color: color__
                             }]}>No comment</Text>
                         </View>
