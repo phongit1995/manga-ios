@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     name: {
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
     },
     containerLeft: {
         width: 52,

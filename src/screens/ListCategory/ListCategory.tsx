@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFF",
     },
     header: {
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
         borderBottomWidth: 0.5,
         paddingVertical: 13,
         //borderBottomColor:"#A6ACA3",

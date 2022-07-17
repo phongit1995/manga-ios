@@ -17,7 +17,7 @@ const Header: FunctionComponent<any> = ({ colorBorder, color__, color_,isDark })
                 <AntDesign name="arrowleft" size={25} color={isDark ? '#fff' : "#111217"} />
             </TouchableOpacity>
             <View >
-                <Text style={[styles.txt, {color: isDark ? '#fff' : "#111217", fontSize: 18,    fontFamily: 'averta_bold', }]}>Reply Comment</Text>
+                <Text style={[styles.txt, {color: isDark ? '#fff' : "#111217", fontSize: 18,    fontFamily: 'Averta-Bold', }]}>Reply Comment</Text>
             </View>
             <View
                 // onPress={() => navigation.navigate(Screen.SEARCH_SCREEN)}

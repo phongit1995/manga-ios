@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     txt: {
         color: '#1fcf84',
         fontSize: 18,
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
 
     },
     tiny: {

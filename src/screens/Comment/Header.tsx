@@ -13,7 +13,7 @@ const Header: FunctionComponent<any> = ({ isDark, color__, color_, colorBorder, 
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <AntDesign name="arrowleft" size={25} color={isDark ? '#fff' : "#111217"} />
             </TouchableOpacity>
-            <Text style={[styles.txt, { color: isDark ? '#fff' : "#111217", fontSize: 18, fontFamily: 'averta_bold', }]}>{children}</Text>
+            <Text style={[styles.txt, { color: isDark ? '#fff' : "#111217", fontSize: 18, fontFamily: 'Averta-Bold', }]}>{children}</Text>
             <View
 
             >

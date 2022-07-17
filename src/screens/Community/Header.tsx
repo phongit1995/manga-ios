@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     },
     txt: {
         fontSize: 22,
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
         fontWeight: 'normal',
         color: '#fff'
     }

@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 13,
         textAlign: 'center',
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
         marginLeft: 5
     },
     containerTop: {

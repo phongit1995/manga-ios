@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         color: '#000',
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
         fontWeight: 'normal'
     },
     seenAll: {

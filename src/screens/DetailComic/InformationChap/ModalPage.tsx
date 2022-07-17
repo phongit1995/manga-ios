@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     },
     txtTitle: {
         fontSize: 17,
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
         color: '#fff',
         textAlign: 'center'
     },

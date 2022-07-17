@@ -217,7 +217,7 @@ const Login = () => {
                                             <Text style={{
                                                 fontSize: 17,
                                                 color: '#fff',
-                                                fontFamily: 'averta_bold',
+                                                fontFamily: 'Averta-Bold',
                                             }}>Sign In</Text>
                                     }
 
@@ -240,7 +240,7 @@ const Login = () => {
                         onPress={() => onHandlerSignUp()}
                     >
 
-                        <Text style={{ color: '#d34150', fontFamily: 'averta_bold', }}>Sign Up</Text>
+                        <Text style={{ color: '#d34150', fontFamily: 'Averta-Bold', }}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
     },
     txtName: {
         fontSize: 20,
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
         fontWeight: 'normal',
         marginBottom: 10,
 

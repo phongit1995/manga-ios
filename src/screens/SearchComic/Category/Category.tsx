@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
         fontWeight: 'normal',
     },
     contain: {

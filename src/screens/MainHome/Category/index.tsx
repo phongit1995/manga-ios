@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
         fontWeight: 'normal',
         marginBottom: 5,
         marginLeft: 15,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         paddingTop: 2,
         textAlign: 'center',
         fontSize: 12,
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
     },
     containerFlat: {
         marginLeft: 15

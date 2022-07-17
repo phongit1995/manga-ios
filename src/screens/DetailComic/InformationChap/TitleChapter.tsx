@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         paddingTop: 0,
         color: '#000',
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
     }
 })
 

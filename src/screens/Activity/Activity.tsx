@@ -64,7 +64,7 @@ const Activity = () => {
             {...props}
             renderLabel={({ route, focused, color }) => (
                 <View style={styles.containerItem}>
-                    <Text style={{ color: focused ? "#d34150" : isDarkMode ? '#FFF' : "#03045e", fontFamily: 'averta_bold', fontSize: 16 }}>
+                    <Text style={{ color: focused ? "#d34150" : isDarkMode ? '#FFF' : "#03045e", fontFamily: 'Averta-Bold', fontSize: 16 }}>
                         {route.title}
                     </Text>
                     {

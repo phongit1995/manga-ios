@@ -20,7 +20,7 @@ const Header:FunctionComponent<headerProps> = ({ type , color______, color_ }) =
                 <AntDesign name="arrowleft" size={25} color={color______} />
             </TouchableOpacity>
             <View >
-                <Text style={{ fontSize: 22,     fontFamily: 'averta_bold', color:color______}}>{type}</Text>
+                <Text style={{ fontSize: 22,     fontFamily: 'Averta-Bold', color:color______}}>{type}</Text>
             </View>
             <TouchableOpacity
                 onPress={() => {

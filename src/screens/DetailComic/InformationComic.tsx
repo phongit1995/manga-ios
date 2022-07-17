@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     status: {
         color: '#1fcf84',
         fontSize: 15,
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
     },
     category: {
         color: '#000',
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 10,
         marginHorizontal: 10,
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
     },
     conatinerInfor: {
         flexDirection: 'row',
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 15,
         textAlign: 'center',
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
     },
     txt: {
         color: '#fff',

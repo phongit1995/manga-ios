@@ -77,9 +77,9 @@ export default function Profile({ loading, setavatar, avatar, inforUser, isToggl
                             <AntDesign name="camera" size={20} style={styles.containerIcon}></AntDesign>
                         </TouchableOpacity>
                         <View>
-                            <Text style={[styles.txtUser, { color: color___, fontSize: 16, fontFamily: 'averta_bold' }]}>❤️ {inforUser?.data?.name} </Text>
-                            <Text style={[styles.txtUser, { color: color___, marginTop: 0, fontSize: 16,fontFamily: 'averta_bold', }]}>♛<Text style={{ fontSize: 12 }}> Member</Text></Text>
-                            <Text style={[styles.dateUser, { color: color___, fontFamily: 'averta_bold', }]}>🍀 <Text style={{ fontSize: 12 }}>{getDay()}</Text></Text>
+                            <Text style={[styles.txtUser, { color: color___, fontSize: 16, fontFamily: 'Averta-Bold' }]}>❤️ {inforUser?.data?.name} </Text>
+                            <Text style={[styles.txtUser, { color: color___, marginTop: 0, fontSize: 16,fontFamily: 'Averta-Bold', }]}>♛<Text style={{ fontSize: 12 }}> Member</Text></Text>
+                            <Text style={[styles.dateUser, { color: color___, fontFamily: 'Averta-Bold', }]}>🍀 <Text style={{ fontSize: 12 }}>{getDay()}</Text></Text>
                         </View>
                     </View> : (
                         <View style={styles.containerNoUser}>

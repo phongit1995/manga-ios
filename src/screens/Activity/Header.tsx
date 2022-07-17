@@ -8,7 +8,7 @@ const Header = ({ color___, color____ }: any) => {
 
     return (
         <View style={[styles.headerContainer, { backgroundColor: color___ }]}>
-            {/* <Text style={{ fontSize: 22, fontFamily: 'averta_bold',color:color____ }}>Story Cabinets</Text> */}
+            {/* <Text style={{ fontSize: 22, fontFamily: 'Averta-Bold',color:color____ }}>Story Cabinets</Text> */}
 
         </View >
     )

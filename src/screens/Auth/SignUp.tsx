@@ -204,7 +204,7 @@ const SignUp = () => {
                                             AdmodService.showAdsFull(screen.LOGIN_SCREEN,null,null)
                                         }}
                                     >
-                                        <Text style={{ color: '#d34150', fontFamily: 'averta_bold', }}>Sign In</Text>
+                                        <Text style={{ color: '#d34150', fontFamily: 'Averta-Bold', }}>Sign In</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>

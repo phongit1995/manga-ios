@@ -53,7 +53,7 @@ const FormInputSearch: FunctionComponent<FormInputSearchProps> = ({
                 style={{ width: '20%' }}
                 onPress={() => navigation.goBack()}
             >
-                <Text style={[{ textAlign: 'center', fontFamily: 'averta_bold', }, { color }]}>Cancel</Text>
+                <Text style={[{ textAlign: 'center', fontFamily: 'Averta-Bold', }, { color }]}>Cancel</Text>
             </TouchableOpacity>
         </View>
 

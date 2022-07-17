@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingVertical: 10,
         backgroundColor: '#e5e5e5',
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
         borderRadius: 8,
         paddingHorizontal: 10
     }

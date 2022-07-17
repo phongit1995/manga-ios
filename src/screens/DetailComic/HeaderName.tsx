@@ -38,6 +38,6 @@ const styles = StyleSheet.create({
         fontSize: 15,
         textAlign: 'center',
         marginHorizontal: 20,
-        fontFamily: 'averta_bold',
+        fontFamily: 'Averta-Bold',
     }
 })

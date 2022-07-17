@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
         marginVertical: 5
     },
     title: {
-        fontSize: 18, fontFamily: 'averta_bold',
+        fontSize: 18, fontFamily: 'Averta-Bold',
     },
     normal: {
         fontFamily: 'Montserrat-Light',
