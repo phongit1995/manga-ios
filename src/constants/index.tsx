@@ -6,7 +6,7 @@ export interface IconProps {
   active?: boolean;
 }
 export const iconload = require('../assets/image/890-loading-animation.json');
-export const STATUS_BAR_HEIGHT: number = getStatusBarHeight()
+export const STATUS_BAR_HEIGHT: number = 0;
 const numberOfIcons = 4;
 const horizontalPadding = 75;
 export const DURATION = 450;

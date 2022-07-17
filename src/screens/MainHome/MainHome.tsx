@@ -169,7 +169,7 @@ const MainHome: FunctionComponent = () => {
         <SafeAreaView style={[styles.container, { backgroundColor: color__ }]}>
             <FocusAwareStatusBar
                 barStyle={colorStatusBar}
-                hidden={false}
+                hidden={true}
                 translucent={true}
                 backgroundColor={color___}
             />

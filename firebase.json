@@ -1,6 +1,7 @@
 {
     "react-native": {
       "admob_android_app_id": "ca-app-pub-3809275610134580~7058493404",
-      "admob_ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
+      "admob_ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx",
+      "messaging_ios_auto_register_for_remote_messages":false
     }
   }
