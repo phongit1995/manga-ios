@@ -42,7 +42,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
@@ -66,6 +66,7 @@
 		<string>Nunito-Bold.ttf</string>
 		<string>Montserrat-Light.otf</string>
 		<string>Averta-Regular.otf</string>
+		<string>Brygada1918-Medium.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

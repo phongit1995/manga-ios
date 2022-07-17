@@ -27,6 +27,7 @@
 		FAAA63C82883B6AB00591F48 /* Averta-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAAA63C62883B6AB00591F48 /* Averta-Bold.otf */; };
 		FAAA63C92883B6AB00591F48 /* Averta.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAAA63C72883B6AB00591F48 /* Averta.otf */; };
 		FAAA63CB2883BE2600591F48 /* www in Resources */ = {isa = PBXBuildFile; fileRef = FAAA63CA2883BE2600591F48 /* www */; };
+		78912E2E256746A6BCD23D55 /* Brygada1918-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EBA363731C94D95A86F2416 /* Brygada1918-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		FAAA63C62883B6AB00591F48 /* Averta-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Averta-Bold.otf"; path = "../assets/fonts/Averta-Bold.otf"; sourceTree = "<group>"; };
 		FAAA63C72883B6AB00591F48 /* Averta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Averta.otf; path = ../assets/fonts/Averta.otf; sourceTree = "<group>"; };
 		FAAA63CA2883BE2600591F48 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../android/app/src/main/assets/www; sourceTree = "<group>"; };
+		6EBA363731C94D95A86F2416 /* Brygada1918-Medium.ttf */ = {isa = PBXFileReference; name = "Brygada1918-Medium.ttf"; path = "../assets/fonts/Brygada1918-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 				89E4C82275114D7CB40C1C88 /* Zocial.ttf */,
 				3C0E85F8958945FA95360D28 /* Montserrat-Light.otf */,
 				C0C689C04C3E491FBF035FF4 /* Averta-Regular.otf */,
+				6EBA363731C94D95A86F2416 /* Brygada1918-Medium.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				6FAE62B9C80D4E5FA9C9B6AD /* Montserrat-Light.otf in Resources */,
 				FA20781828805B0F0059DD3B /* GoogleService-Info.plist in Resources */,
 				ADE8053DA6F74E74975E0A05 /* Averta-Regular.otf in Resources */,
+				78912E2E256746A6BCD23D55 /* Brygada1918-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
