@@ -34,7 +34,7 @@ const Setting: FunctionComponent = () => {
     const navigation = useNavigation();
     const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state)
-    const { isDarkMode } = state.FunctionReduce;
+    const { isDarkMode , isPremium} = state.FunctionReduce;
     const [isEnabled, setIsEnabled] = React.useState<boolean>(true);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     const [isToggleBackground, setToggleBackground] = React.useState<boolean>(isDarkMode);
@@ -169,6 +169,7 @@ const Setting: FunctionComponent = () => {
             >
 
                 <Profile {...{loading,  setavatar, inforUser, avatar, color___: color, isToggleBackground, color_ }}></Profile>
+                { isPremium ? null : (
                 <TouchableOpacity
                     onPress={() => {
                         AdmodService.showAdsFull(screen.PERMIUM_SCREEN,null,null);
@@ -189,7 +190,7 @@ const Setting: FunctionComponent = () => {
 
                         </View>
                     </LinearGradient>
-                </TouchableOpacity>
+                </TouchableOpacity> )}
                 <View style={[styles.conatiner_, { backgroundColor: color_, borderWidth: isToggleBackground ? 1 : 0, borderColor: isToggleBackground ? '#fff' : '' }]}>
                     <View style={[styles.notifi, {
                         borderColor: '#d6d6d6',

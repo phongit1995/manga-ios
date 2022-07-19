@@ -2,7 +2,7 @@ import * as types from '../constants/FunctionConstants';
 const initialState = {
     isDarkMode: false,
     numberLight: 0,
-    isPremium: false,
+    isPremium: true,
     isTurn: 0,
     isTutorial: true
 };
