@@ -118,7 +118,7 @@ class ImageZoomState {
 }
 
 
-export default class ImageViewer extends React.Component<ImageZoomProps, ImageZoomState> {
+export default class ImageViewer extends React.PureComponent<ImageZoomProps, ImageZoomState> {
   public static defaultProps = new ImageZoomProps();
   public state = new ImageZoomState();
   private lastPositionX: number | null = null;

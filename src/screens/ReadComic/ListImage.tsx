@@ -163,6 +163,7 @@ const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, ind
                                 renderItem={renderItem}
                                 horizontal={isTurn === TYPE_READ.HORIZONTAL}
                                 decelerationRate={'normal'}
+                                maxToRenderPerBatch={12}
                                 pagingEnabled={isTurn === TYPE_READ.HORIZONTAL}
                                 viewabilityConfig={_viewabilityConfig}
                                 onViewableItemsChanged={_onViewableItemsChanged}
