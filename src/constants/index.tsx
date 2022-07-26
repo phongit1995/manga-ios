@@ -26,3 +26,7 @@ export const Colors = {
 export const SCREEN_HEIGHT : number = Math.round(Dimensions.get('window').height)
 export const SCREEN_WIDTH : number = Math.round(Dimensions.get('window').width)
 export const SCREEN_WIDTH_No : number = Dimensions.get('window').width
+export const TYPE_READ : any = {
+  VERTICAL: 0,
+  HORIZONTAL: 1,
+}

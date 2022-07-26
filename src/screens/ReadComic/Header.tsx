@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, {FunctionComponent, useImperativeHandle, useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, Image } from 'react-native';
 import { STATUS_BAR_HEIGHT, SCREEN_HEIGHT } from '../../constants'
 import { useNavigation } from '@react-navigation/native';
@@ -11,8 +11,19 @@ type headerProps = {
     setShowTutorial: any
 }
 
-const Header: FunctionComponent<headerProps> = ({ translateY, name, setShowTutorial }) => {
+const Header: FunctionComponent<headerProps> = React.forwardRef(({ translateY, name, setShowTutorial }, ref) => {
     const navigation = useNavigation<any>();
+    const [page, setPage] = useState({
+        page: '--',
+        totalPage: '--',
+    })
+
+    useImperativeHandle(ref, () => ({
+        handleChangePage
+    }), [])
+    function handleChangePage(_page){
+        setPage(_page);
+    }
     const onHandlerShow = () => {
         setShowTutorial(true)
 
@@ -39,11 +50,14 @@ const Header: FunctionComponent<headerProps> = ({ translateY, name, setShowTutor
             >
                 <Image source={iconquestion} style={styles.imgIcon}></Image>
             </TouchableOpacity>
+            <View style={styles.page}>
+                <Text style={styles.pageNow}>{page.page}/{page.totalPage}</Text>
+            </View>
         </Animated.View>
 
     );
 
-}
+})
 export default React.memo(Header, isEqual)
 const styles = StyleSheet.create({
     Header: {
@@ -77,5 +91,19 @@ const styles = StyleSheet.create({
         height: 25,
         resizeMode: 'contain',
 
+    },
+    page: {
+        position: 'absolute',
+        bottom: 5,
+        alignSelf: 'center',
+    },
+    pageNow: {
+        textTransform: 'uppercase',
+        fontSize: 15,
+        flex: 1,
+        textAlign: "center",
+        fontFamily: 'Nunito-Bold',
+        color: '#fff',
+        marginHorizontal: 10
     }
 })

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useRef} from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import { getDetailChapter } from './../../api/comic'
 import { useRoute, RouteProp } from '@react-navigation/native';
@@ -38,6 +38,7 @@ export type RouterProps = {
 export default function ReadComic() {
     const dispatch = useDispatch()
     const router = useRoute<RootRouteProps<'DETIAL_CHAPTER'>>();
+    const headerRef = useRef(null);
     const { id, idChap, dataTotleChap, indexChap, page } = router.params;
     const state = useSelector((state: RootState) => state)
     const { isDarkMode, isTurn, isTutorial } = state.FunctionReduce;
@@ -126,11 +127,11 @@ export default function ReadComic() {
                     </View>
                 ) : (
                     <React.Fragment>
-                        <Header {...{ translateY, name, setShowTutorial }}></Header>
+                        <Header ref={headerRef} {...{ translateY, name, setShowTutorial }}></Header>
                         <View style={[styles.container, { backgroundColor: color_ }]}>
                             {
                                 isNetWork ? (
-                                    <ListImage {...{ isDarkMode, afterChapter, page, indexChap, dataTotleChap, idChap, isTurn, imagesList: imagesList ? imagesList : [], scrollY, scrollYFooter }}></ListImage>
+                                    <ListImage headerRef={headerRef} {...{ isDarkMode, afterChapter, page, indexChap, dataTotleChap, idChap, isTurn, imagesList: imagesList ? imagesList : [], scrollY, scrollYFooter }}></ListImage>
                                 ) : (
                                     <NetWork></NetWork>
                                 )
