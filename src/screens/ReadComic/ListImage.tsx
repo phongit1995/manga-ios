@@ -1,13 +1,14 @@
-import React, { FunctionComponent } from 'react';
+import React, {FunctionComponent, useState, useCallback, useRef, useEffect} from 'react';
 import isEqual from 'react-fast-compare';
-import { View, StyleSheet, Image, Dimensions, FlatList, Text } from 'react-native';
+import { View, StyleSheet, Image, Dimensions, Text } from 'react-native';
 import ImageFullWith from './ImageFullWith'
-import { SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_WIDTH_No, STATUS_BAR_HEIGHT } from '../../constants';
+import {SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_WIDTH_No, STATUS_BAR_HEIGHT, TYPE_READ} from '../../constants';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as SCREEN from '../../constants/ScreenTypes';
 import AdmodService from '../../firebase/Admod';
 import { RecyclerListView, DataProvider, LayoutProvider } from "recyclerlistview";
-import { LongPressGestureHandler, ScrollView, State, TapGestureHandler } from 'react-native-gesture-handler';
+import { LongPressGestureHandler, ScrollView, State, TapGestureHandler, FlatList } from 'react-native-gesture-handler';
+const {height, width} = Dimensions.get('window');
 
 type listImageProps = {
     isTurn: number,
@@ -16,17 +17,40 @@ type listImageProps = {
     scrollYFooter: any,
 }
 
-const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, indexChap, dataTotleChap, idChap, isTurn, imagesList, scrollY, scrollYFooter }: any) => {
-    const navigation = useNavigation<any>();
+const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, indexChap, dataTotleChap, idChap, isTurn, imagesList, scrollY, scrollYFooter, headerRef }: any) => {
     let carousel = React.useRef<any>(null);
-    const [feakeData, setfeakeData] = React.useState([])
     let [count, setCount] = React.useState<number>(0)
+    const indexNow = useRef(0);
+    const isMount = useRef(false);
+
+    const _onViewableItemsChanged = useCallback(({ viewableItems, changed }) => {
+        indexNow.current = viewableItems?.[0]?.index || 0;
+        headerRef.current?.handleChangePage({
+            page: viewableItems?.[0]?.index + 1,
+            totalPage: imagesList?.length || 0,
+        })
+    }, [imagesList]);
+
+    const _viewabilityConfig = {
+        itemVisiblePercentThreshold: 50
+    }
+
+    useEffect(() => {
+        if(isMount.current){
+            console.log({indexNow})
+            carousel.current?.scrollToIndex({
+                index: indexNow.current,
+            })
+        } else {
+            isMount.current = true;
+        }
+        }, [isTurn])
 
     let _goToNextPage = (e: number) => {
         scrollY.setValue((SCREEN_HEIGHT / 9.5) + STATUS_BAR_HEIGHT);
         scrollYFooter.setValue(SCREEN_HEIGHT / 15)
         if (carousel.current) {
-            if (isTurn === 0) {
+            if (isTurn === TYPE_READ.VERTICAL) {
                 carousel.current.scrollToOffset({
                     offset: (SCREEN_WIDTH_No) * (e + 1),
                     animated: true,
@@ -44,43 +68,7 @@ const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, ind
             AdmodService.loadAdmod();
         }, [])
     )
-    React.useEffect(() => {
-        (() => {
-            if (isTurn === 1 && imagesList.length != 0) {
-                let arr: any = []
-                new Promise(async (reslove, reject) => {
-                    for (let index = 0; index < imagesList.length; index++) {
-                        arr.push({
-                            type: 'NORMAL',
-                            item: {
-                                image: imagesList[index],
-                                index: index
-                            }
-                        })
-                    }
-                    reslove(arr)
-                }).then((i: any) => {
-                    setfeakeData(i)
-                }).catch(e => console.log(e))
-            }
 
-        })()
-        return () => setCount(0)
-    }, [imagesList, isTurn])
-    const list = new DataProvider((r1, r2) => r1 !== r2).cloneWithRows(feakeData)
-    const _layoutProvider = new LayoutProvider((i) => {
-        return list.getDataForIndex(i).type;
-    }, (type, dim) => {
-        switch (type) {
-            case 'NORMAL':
-                dim.width = SCREEN_WIDTH_No
-                dim.height = SCREEN_HEIGHT
-                break;
-            default:
-                dim.width = 0;
-                dim.height = 0;
-        }
-    });
     React.useEffect(() => {
         let timer = setTimeout(() => {
             scrollY.setValue((SCREEN_HEIGHT / 9.5) + STATUS_BAR_HEIGHT);
@@ -111,21 +99,26 @@ const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, ind
             </View>
         )
     }
-    let renderItem = ({ item, index }) => <ImageFullWith {...{
-        url: item,
-        isTurn,
-        scrollY,
-        scrollYFooter,
-    }} />
+
+    let renderItem = ({ item, index }) => {
+        return(
+          <ImageFullWith {...{
+              url: item,
+              isTurn,
+              scrollY,
+              scrollYFooter,
+          }} />
+        )
+    }
     let keyExtractor = (_, index: number) => {
         return (index).toString()
     }
-    const getItemLayout = isTurn === 0 ? undefined : (_, index: number) => {
-        return ({
-            length: SCREEN_WIDTH_No,
-            offset: (SCREEN_WIDTH_No) * (index + 1),
-            index: index
-        })
+    const getItemLayout = isTurn === TYPE_READ.VERTICAL ? undefined : (_, index) => {
+            return ({
+                length: SCREEN_WIDTH_No,
+                offset: (SCREEN_WIDTH_No) * (index),
+                index: index
+            })
     }
     const __onhandlerOpenTab = () => {
         scrollY.setValue(-SCREEN_HEIGHT / 9.5);
@@ -133,6 +126,7 @@ const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, ind
     }
     const _onSingleTapVertical = event => {
         if (event.nativeEvent.state === State.ACTIVE) {
+            // settingRef.current?.onShow();
             if (event.nativeEvent.y > SCREEN_HEIGHT / 2) {
                 _goToNextPage(count)
             } else {
@@ -149,10 +143,9 @@ const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, ind
             }
         }
     }
+    console.log({isTurn})
     return (
         <View style={[styles.content, { backgroundColor: isDarkMode ? '#111217' : '#FFF' }]}>
-            {
-                isTurn === 0 ? (
                     <View style={{
                         justifyContent: 'center',
                         alignItems: 'center'
@@ -164,11 +157,16 @@ const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, ind
                                 ref={ref => {
                                     carousel.current = ref;
                                 }}
+                                key={isTurn?.toString()}
                                 data={imagesList ? imagesList : []}
                                 keyExtractor={keyExtractor}
                                 renderItem={renderItem}
-                                horizontal={false}
+                                horizontal={isTurn === TYPE_READ.HORIZONTAL}
                                 decelerationRate={'normal'}
+                                maxToRenderPerBatch={12}
+                                pagingEnabled={isTurn === TYPE_READ.HORIZONTAL}
+                                viewabilityConfig={_viewabilityConfig}
+                                onViewableItemsChanged={_onViewableItemsChanged}
                                 contentContainerStyle={{
                                     zIndex: 99999,
                                     elevation: 10000,
@@ -180,12 +178,20 @@ const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, ind
                                         scrollYFooter.setValue(SCREEN_HEIGHT / 15)
                                     }
                                 }}
-
+                                onScrollToIndexFailed={info => {
+                                    const wait = new Promise(resolve => setTimeout(resolve, 500));
+                                    wait.then(() => {
+                                        carousel.current?.scrollToIndex({
+                                            index: info.index,
+                                            animated: true,
+                                        });
+                                    });
+                                }}
                                 scrollEventThrottle={10}
-                                snapToInterval={isTurn === 0 ? undefined : SCREEN_WIDTH_No}
+                                // snapToInterval={isTurn === TYPE_READ.VERTICAL ? undefined : SCREEN_WIDTH_No}
                                 getItemLayout={getItemLayout}
                                 onMomentumScrollEnd={(e) => {
-                                    if (isTurn === 0) {
+                                    if (isTurn === TYPE_READ.VERTICAL) {
                                         let newIndex = Math.round(
                                             e.nativeEvent.contentOffset.y / (SCREEN_HEIGHT / 2)
                                         );
@@ -195,47 +201,6 @@ const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, ind
                             />
                         </TapGestureHandler>
                     </View>
-                ) : (
-                    imagesList.length != 0 ? (
-                        <React.Fragment>
-                            <TapGestureHandler
-                                onHandlerStateChange={_onSingleTapHorizintal}
-                            >
-                                <RecyclerListView
-                                    rowRenderer={_rowRenderer}
-                                    dataProvider={list}
-                                    scrollThrottle={10}
-                                    ref={ref => {
-                                        carousel.current = ref;
-                                    }}
-                                    style={{ marginTop: STATUS_BAR_HEIGHT }}
-                                    onScroll={(e) => {
-                                        if (e.nativeEvent.contentOffset.x > 0) {
-                                            scrollY.setValue((SCREEN_HEIGHT / 9.5) + STATUS_BAR_HEIGHT);
-                                            scrollYFooter.setValue(SCREEN_HEIGHT / 15)
-                                        }
-                                    }}
-                                    onMomentumScrollEnd={(e) => {
-                                        if (isTurn === 1) {
-                                            let newIndex = Math.round(
-                                                e.nativeEvent.contentOffset.x / (SCREEN_WIDTH_No)
-                                            );
-                                            setCount(newIndex)
-
-                                        }
-                                    }}
-
-                                    layoutProvider={_layoutProvider}
-                                    isHorizontal={true}
-                                    decelerationRate="normal"
-                                    canChangeSize={true}
-                                    snapToInterval={SCREEN_WIDTH_No}
-                                />
-                            </TapGestureHandler>
-                        </React.Fragment>
-                    ) : null
-                )
-            }
         </View>
     );
 

@@ -21,7 +21,9 @@ type modalsProps = {
     color_: string,
     color__: string,
 }
-const Modals: FunctionComponent<modalsProps> = ({ color_, color__, isTurn, modalVisible, _setModalVisible }) => {
+
+export const ModalSettingRef = React.createRef();
+const Modals: FunctionComponent<modalsProps> = React.forwardRef(({ color_, color__, isTurn, modalVisible, _setModalVisible }, ref) => {
     const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state)
     const { numberLight } = state.FunctionReduce;
@@ -96,7 +98,7 @@ const Modals: FunctionComponent<modalsProps> = ({ color_, color__, isTurn, modal
         </Modal >
 
     );
-};
+});
 export default React.memo(Modals);
 const styles = StyleSheet.create({
     centeredView: {
