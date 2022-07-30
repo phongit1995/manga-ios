@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import isEqual from 'react-fast-compare';
-import { FlatList, TouchableOpacity, View } from 'react-native';
+import { FlatList, TouchableOpacity, View, Dimensions } from 'react-native';
 import ImageZoom from 'react-native-image-pan-zoom';
 import { SCREEN_HEIGHT, SCREEN_WIDTH_No, STATUS_BAR_HEIGHT, } from '../../constants';
 import FastImage from 'react-native-fast-image'
 import LoadingImage from '../../components/LoadingImage';
-const ImageFullWith = React.memo(({ 
+import ImageViewer from "./ImagePanZoom";
+const ImageFullWith = React.memo(({
     url,
     isTurn,
     scrollY,
@@ -14,9 +15,22 @@ const ImageFullWith = React.memo(({
      console.log(url)
     const [heightImage, setHeightImage] = React.useState<number>(7000);
     const [indicator, Setindicator] = React.useState<boolean>(true);
+    const scaleValue = useRef(1);
     if (isTurn === 0) {
         return (
-
+          <ImageViewer
+            cropWidth={Dimensions.get('window').width}
+            cropHeight={heightImage}
+            imageWidth={SCREEN_WIDTH_No}
+            imageHeight={heightImage}
+            minScale={1}
+            onStartShouldSetPanResponder={(e) => {
+              return e.nativeEvent.touches.length === 2 || scaleValue.current > 1;
+            }}
+            onMove={({scale}) => {
+              scaleValue.current = scale;
+            }}
+          >
             <FastImage
                 style={{
                     width: SCREEN_WIDTH_No,
@@ -28,7 +42,7 @@ const ImageFullWith = React.memo(({
                         Referer: "https://manganelo.com/"
                     },
                     priority: FastImage.priority.normal,
-                
+
                 }}
                 onLoadStart={() => {
                     Setindicator(true)
@@ -52,7 +66,7 @@ const ImageFullWith = React.memo(({
                     </View> : null
                 }
             </FastImage>
-
+          </ImageViewer>
 
         )
     }
@@ -74,11 +88,19 @@ const ImageFullWith = React.memo(({
                                 justifyContent: 'center'
                             }}
                         >
-                            <ImageZoom cropWidth={SCREEN_WIDTH_No}
-                                cropHeight={heightImage / 3}
-                                imageWidth={SCREEN_WIDTH_No}
-                                minScale={1}
-                                imageHeight={heightImage / 3}>
+                          <ImageViewer
+                            cropWidth={Dimensions.get('window').width}
+                            cropHeight={heightImage / 3}
+                            imageWidth={SCREEN_WIDTH_No}
+                            imageHeight={heightImage / 3}
+                            minScale={1}
+                            onStartShouldSetPanResponder={(e) => {
+                              return e.nativeEvent.touches.length === 2 || scaleValue.current > 1;
+                            }}
+                            onMove={({scale}) => {
+                              scaleValue.current = scale;
+                            }}
+                          >
                                 <FastImage
                                     style={{
                                         width: SCREEN_WIDTH_No,
@@ -113,7 +135,7 @@ const ImageFullWith = React.memo(({
                                         </View> : null
                                     }
                                 </FastImage>
-                            </ImageZoom>
+                          </ImageViewer>
                         </View>
                     )
                 }}
@@ -135,6 +157,19 @@ const ImageFullWith = React.memo(({
             keyExtractor={(_, index) => index.toString()}
             renderItem={({ item }) => {
                 return (
+                  <ImageViewer
+                    cropWidth={Dimensions.get('window').width}
+                    cropHeight={heightImage >= SCREEN_HEIGHT ? heightImage : SCREEN_HEIGHT}
+                    imageWidth={SCREEN_WIDTH_No}
+                    imageHeight={heightImage >= SCREEN_HEIGHT ? heightImage : SCREEN_HEIGHT}
+                    minScale={1}
+                    onStartShouldSetPanResponder={(e) => {
+                      return e.nativeEvent.touches.length === 2 || scaleValue.current > 1;
+                    }}
+                    onMove={({scale}) => {
+                      scaleValue.current = scale;
+                    }}
+                  >
                     <View
                         style={{
                             width: SCREEN_WIDTH_No,
@@ -177,6 +212,8 @@ const ImageFullWith = React.memo(({
                             </View> : null
                         }
                     </View>
+                  </ImageViewer>
+
                 )
             }}
         >
