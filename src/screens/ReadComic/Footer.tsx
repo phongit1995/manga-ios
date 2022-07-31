@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, {FunctionComponent, useImperativeHandle, useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SCREEN_HEIGHT } from '../../constants'
@@ -25,9 +25,17 @@ type footerprops = {
     indexChap: number,
     page: number,
 }
-const Footer: FunctionComponent<footerprops> = ({ page, indexChap, dataTotleChap, name, id, idChap, translateYFooter, beforeChapter, afterChapter, _setModalVisible }) => {
+const Footer: FunctionComponent<footerprops> = React.forwardRef(({ page, indexChap, dataTotleChap, name, id, idChap, translateYFooter, beforeChapter, afterChapter, _setModalVisible }, ref) => {
 
     const navigation = useNavigation<any>();
+    const [isAlwaysShow, setAlwaysShow] = useState(false);
+    function handleChangeShow(status) {
+        setAlwaysShow(status === undefined ? true : status);
+    }
+
+    useImperativeHandle(ref, () => ({
+        handleChangeShow
+    }), [])
 
     const onHandlerAfterChap = async () => {
         try {
@@ -46,7 +54,7 @@ const Footer: FunctionComponent<footerprops> = ({ page, indexChap, dataTotleChap
     }
     return (
 
-        <Animated.View style={[styles.Footer, {
+        <Animated.View style={[styles.Footer, !isAlwaysShow && {
             transform: [
                 { translateY: translateYFooter }
             ]
@@ -103,7 +111,7 @@ const Footer: FunctionComponent<footerprops> = ({ page, indexChap, dataTotleChap
 
     );
 
-}
+});
 export default React.memo(Footer, isEqual)
 const styles = StyleSheet.create({
     endchap: {

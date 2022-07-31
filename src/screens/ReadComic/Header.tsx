@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, {FunctionComponent, useImperativeHandle, useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, Image } from 'react-native';
 import { STATUS_BAR_HEIGHT, SCREEN_HEIGHT } from '../../constants'
 import { useNavigation } from '@react-navigation/native';
@@ -11,19 +11,36 @@ type headerProps = {
     setShowTutorial: any
 }
 
-const Header: FunctionComponent<headerProps> = ({ translateY, name, setShowTutorial }) => {
+const Header: FunctionComponent<headerProps> = React.forwardRef(({ translateY, name, setShowTutorial }, ref) => {
     const navigation = useNavigation<any>();
+    const [page, setPage] = useState({
+        page: '--',
+        totalPage: '--',
+    })
+    const [isAlwaysShow, setAlwaysShow] = useState(false);
+
+    useImperativeHandle(ref, () => ({
+        handleChangePage,
+        handleChangeShow
+    }), [])
+    function handleChangePage(_page){
+        setPage(_page);
+    }
+
+    function handleChangeShow(status) {
+        setAlwaysShow(status === undefined ? true : status);
+    }
     const onHandlerShow = () => {
         setShowTutorial(true)
 
     }
     return (
 
-        <Animated.View style={[styles.Header, {
+        <Animated.View style={[styles.Header, !isAlwaysShow ? {
             transform: [
                 { translateY: translateY }
             ]
-        }]}>
+        } : {}]}>
             <TouchableOpacity
                 onPress={() => {
 
@@ -39,11 +56,14 @@ const Header: FunctionComponent<headerProps> = ({ translateY, name, setShowTutor
             >
                 <Image source={iconquestion} style={styles.imgIcon}></Image>
             </TouchableOpacity>
+            <View style={styles.page}>
+                <Text style={styles.pageNow}>{page.page}/{page.totalPage}</Text>
+            </View>
         </Animated.View>
 
     );
 
-}
+})
 export default React.memo(Header, isEqual)
 const styles = StyleSheet.create({
     Header: {
@@ -65,7 +85,7 @@ const styles = StyleSheet.create({
 
     name: {
         textTransform: 'uppercase',
-        fontSize: 15,
+        fontSize: 13,
         flex: 1,
         textAlign: "center",
         fontFamily: 'Nunito-Bold',
@@ -77,5 +97,19 @@ const styles = StyleSheet.create({
         height: 25,
         resizeMode: 'contain',
 
+    },
+    page: {
+        position: 'absolute',
+        bottom: 5,
+        alignSelf: 'center',
+    },
+    pageNow: {
+        textTransform: 'uppercase',
+        fontSize: 13,
+        flex: 1,
+        textAlign: "center",
+        fontFamily: 'Nunito-Bold',
+        color: '#fff',
+        marginHorizontal: 10
     }
 })

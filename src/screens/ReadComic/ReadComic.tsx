@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useRef} from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import { getDetailChapter } from './../../api/comic'
 import { useRoute, RouteProp } from '@react-navigation/native';
@@ -38,6 +38,8 @@ export type RouterProps = {
 export default function ReadComic() {
     const dispatch = useDispatch()
     const router = useRoute<RootRouteProps<'DETIAL_CHAPTER'>>();
+    const headerRef = useRef(null);
+    const footerRef = useRef(null);
     const { id, idChap, dataTotleChap, indexChap, page } = router.params;
     const state = useSelector((state: RootState) => state)
     const { isDarkMode, isTurn, isTutorial } = state.FunctionReduce;
@@ -126,11 +128,11 @@ export default function ReadComic() {
                     </View>
                 ) : (
                     <React.Fragment>
-                        <Header {...{ translateY, name, setShowTutorial }}></Header>
+                        <Header ref={headerRef} {...{ translateY, name, setShowTutorial }}></Header>
                         <View style={[styles.container, { backgroundColor: color_ }]}>
                             {
                                 isNetWork ? (
-                                    <ListImage {...{ isDarkMode, afterChapter, page, indexChap, dataTotleChap, idChap, isTurn, imagesList: imagesList ? imagesList : [], scrollY, scrollYFooter }}></ListImage>
+                                    <ListImage footerRef={footerRef} headerRef={headerRef} {...{ isDarkMode, afterChapter, page, indexChap, dataTotleChap, idChap, isTurn, imagesList: imagesList ? imagesList : [], scrollY, scrollYFooter }}></ListImage>
                                 ) : (
                                     <NetWork></NetWork>
                                 )
@@ -139,7 +141,7 @@ export default function ReadComic() {
                         {
                             showTutorial ? <TutorialRead {...{ setShowTutorial }}></TutorialRead> : null
                         }
-                        <Footer {...{ page, indexChap, dataTotleChap, name, id, idChap, translateYFooter, beforeChapter, afterChapter, _setModalVisible }}></Footer>
+                        <Footer ref={footerRef} {...{ page, indexChap, dataTotleChap, name, id, idChap, translateYFooter, beforeChapter, afterChapter, _setModalVisible }}></Footer>
                         <Modals {...{ color_, color__, isTurn, modalVisible, _setModalVisible }}></Modals>
                     </React.Fragment>
                 )
