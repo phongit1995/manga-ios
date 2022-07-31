@@ -149,6 +149,21 @@ const Setting: FunctionComponent = () => {
     const dispatchLogout = () => {
         dispatch(LogoutRequest())
     }
+    const onDeleteAccount= ()=>{
+        Toast.show({
+            type: 'success',
+            position: 'top',
+            text1: 'Delete Account Success👋',
+            text2: 'The process may take a few minutes 👋',
+            visibilityTime: 400,
+            autoHide: true,
+            topOffset: 100,
+            bottomOffset: 40,
+            onShow: () => { },
+            onHide: () => { },
+            onPress: () => { }
+        });;
+    }
     return (
         <View style={[styles.container, { backgroundColor: color_ }]}>
             {
@@ -356,6 +371,37 @@ const Setting: FunctionComponent = () => {
                             <Text style={[styles.txtNotifi, { color: color }]}>Version</Text>
                         </View>
                         <Text style={[styles.txtNotifi, { color: color }]}>{getVersion()}</Text>
+                    </View>
+                    <View style={[{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        borderColor: '#d6d6d6',
+                        borderBottomWidth: 1,
+                    }, inforUser && {
+                        borderColor: '#d6d6d6',
+                        borderBottomWidth: 1,
+                    }]}>
+                        <TouchableOpacity style={{
+                            width: '100%',
+                            paddingHorizontal: 20,
+                            paddingVertical: 10,
+                        }}
+                            activeOpacity={0.7}
+                            onPress={() => onDeleteAccount()}
+                        >
+                            <View style={{
+                                flexDirection: 'row',
+                                alignItems: 'center',
+
+                            }}>
+                                <Octicons
+                                    style={styles.tiny}
+                                    color={color____}
+                                    name="lock" size={30} />
+                                <Text style={[styles.txtNotifi, { color: color }]}>Delete account</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                     <View style={[{
                         flexDirection: 'row',
