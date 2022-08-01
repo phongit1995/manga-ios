@@ -138,10 +138,10 @@ const App = () => {
           {
             modalVisible ? <CustomModal {...{ modalVisible, setModalVisible }} title="New Version" type={0}> Have new version . Please update to use </CustomModal> : null
           }
-          <SafeAreaView style={styles.container}>
+          <View style={styles.container}>
 
             <Navigation></Navigation>
-          </SafeAreaView>
+          </View>
         </View>
       </PersistGate>
     </Provider>

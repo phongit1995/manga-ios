@@ -1,7 +1,7 @@
 import React, {FunctionComponent, useImperativeHandle, useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { SCREEN_HEIGHT } from '../../constants'
+import {paddingBottom, SCREEN_HEIGHT} from '../../constants'
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome';
 import * as SCREEN from './../../constants/ScreenTypes';
@@ -122,13 +122,14 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: 0,
         left: 0,
-        height: SCREEN_HEIGHT / 15,
+        height: SCREEN_HEIGHT / 15 + paddingBottom,
         paddingHorizontal: 20,
         elevation: 6,
         backgroundColor: '#777777',
         justifyContent: "center",
         opacity: 0.8,
         zIndex: 10,
+        paddingBottom: paddingBottom,
 
     },
     textChapter: {

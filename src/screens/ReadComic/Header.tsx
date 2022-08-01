@@ -50,7 +50,7 @@ const Header: FunctionComponent<headerProps> = React.forwardRef(({ translateY, n
                 <Image source={iconBack} style={styles.imgIcon}></Image>
 
             </TouchableOpacity>
-            <Text style={styles.name} numberOfLines={2}>{name}</Text>
+            <Text style={styles.name} numberOfLines={1}>{name}</Text>
             <TouchableOpacity
                 onPress={onHandlerShow}
             >
@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
 
         backgroundColor: '#777777',
-        paddingTop: STATUS_BAR_HEIGHT,
-        zIndex: 10,
+        paddingTop: 15,
+        zIndex: 12,
     },
 
     name: {
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontFamily: 'Nunito-Bold',
         color: '#fff',
-        marginHorizontal: 10
+        marginHorizontal: 10,
     },
     imgIcon: {
         width: 25,

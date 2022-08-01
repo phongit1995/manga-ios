@@ -6,7 +6,7 @@ import * as SCREEN from '../../constants/ScreenTypes'
 export const iconLove = require('../../assets/image/lf30_editor_ilhncfag.json');
 import isEqual from 'react-fast-compare';
 import { ItemComicProps } from '../../constants/mangaItem.type'
-import { SCREEN_WIDTH, SCREEN_WIDTH_No } from '../../constants'
+import {paddingBottom, SCREEN_WIDTH, SCREEN_WIDTH_No} from '../../constants'
 import AdmodService from './../../firebase/Admod';
 const iconRead = require('../../assets/image/fairy-tale.png')
 const iconFollow = require('../../assets/image/heart.png')
@@ -135,6 +135,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 2,
+        paddingBottom: paddingBottom,
     },
     btn: {
         flexDirection: 'row',

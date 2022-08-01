@@ -11,7 +11,7 @@ import NetWork from '../../components/NetWork';
 import Header from './Header';
 import { changeBackground, changeBackground__ } from '../../common/stringHelper';
 import SQLHelper from '../../common/SQLHelper';
-import { SCREEN_HEIGHT, SCREEN_WIDTH_No } from '../../constants';
+import {paddingBottom, SCREEN_HEIGHT, SCREEN_WIDTH_No} from '../../constants';
 import FocusAwareStatusBar from '../../components/FocusAwareStatusBar';
 import { RootState } from '../../redux/reducers'
 import AdmodService from './../../firebase/Admod';
@@ -64,7 +64,7 @@ export default function ReadComic() {
     }, [])
     const translateYFooter = diffClampFooter.interpolate({
         inputRange: [0, Math.round(SCREEN_HEIGHT / 15)],
-        outputRange: [0, Math.round(SCREEN_HEIGHT / 15)]
+        outputRange: [0, Math.round(SCREEN_HEIGHT / 15) + paddingBottom]
     })
 
     let _setModalVisible = (e: boolean) => {
