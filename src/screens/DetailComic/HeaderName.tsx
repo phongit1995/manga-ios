@@ -7,7 +7,7 @@ type headerProps = {
     item:any,
     opacity: any
 }
-
+const NUMBERHEIGHT = 55 + STATUS_BAR_HEIGHT
 const HeaderName: FunctionComponent<headerProps> = ({ item, opacity }) => {
 
     return (
@@ -24,14 +24,16 @@ export default React.memo(HeaderName, isEqual);
 const styles = StyleSheet.create({
     containerName: {
         position: 'absolute',
-        top: STATUS_BAR_HEIGHT + 5,
+        top: 0,
         marginHorizontal: 40,
 
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: 8,
+        paddingTop: 18,
         zIndex: 999,
+        height: NUMBERHEIGHT,
+
     },
     txtName: {
         color: '#fff',
