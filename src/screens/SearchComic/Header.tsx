@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 10,
         alignItems: 'center',
-        paddingTop: STATUS_BAR_HEIGHT + 10,
+        paddingTop: 10,
     },
     txt: {
         fontSize: 25,

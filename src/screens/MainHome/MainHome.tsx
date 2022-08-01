@@ -213,10 +213,10 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     containerScroll: {
-        marginTop: STATUS_BAR_HEIGHT
+        marginTop: 0,
     },
     containerSearch: {
-        elevation: 5
+        elevation: 5,
     },
     containerBody: {
         marginBottom: STATUS_BAR_HEIGHT + 60

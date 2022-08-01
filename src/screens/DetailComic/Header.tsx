@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import {View, StyleSheet, TouchableOpacity, SafeAreaView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Octicons from 'react-native-vector-icons/Octicons'
 import { STATUS_BAR_HEIGHT } from '../../constants';
 import isEqual from 'react-fast-compare';
 import FastImage from 'react-native-fast-image';
 export const iconBack = require('../../assets/image/ic_left-arrow-white.png');
+import {paddingBottom} from "../../constants";
 type headerProps = {
     setModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
 }
@@ -15,7 +16,7 @@ const Header: FunctionComponent<headerProps> = ({ setModalVisible }) => {
     return (
         <View style={{
             height: NUMBERHEIGHT,
-            backgroundColor: '#ad772d'
+            backgroundColor: '#ad772d',
         }}>
             <View
                 style={[styles.headerContainer, {
@@ -25,7 +26,7 @@ const Header: FunctionComponent<headerProps> = ({ setModalVisible }) => {
                 <TouchableOpacity
                     activeOpacity={0.7}
                     onPress={() => navigation.goBack()}
-            
+
                 >
                     <FastImage source={iconBack} style={styles.imgIcon}></FastImage>
                 </TouchableOpacity>
@@ -49,9 +50,10 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         flexDirection: "row",
         paddingHorizontal: 10,
-        paddingTop: STATUS_BAR_HEIGHT + 10,
-        height: 70,
-        backgroundColor: '#A46329'
+        paddingTop: 10,
+        flex: 1,
+        // height: 70,
+        backgroundColor: '#A46329',
     },
     imgIcon: {
         width: 23,

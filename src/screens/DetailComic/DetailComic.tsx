@@ -139,7 +139,7 @@ const DetailComic: FunctionComponent = () => {
                     setisLoadingPage(false)
                 }
             } else {
-  
+
                 getDetialComic(id).then((result) => {
 
                     if (result?.data?.status == "success") {
@@ -186,7 +186,7 @@ const DetailComic: FunctionComponent = () => {
     }
 
     return (
-        <SafeAreaView style={[styles.container, { backgroundColor: color_ }]}>
+        <View style={[styles.container, { backgroundColor: color_ }]}>
             <FocusAwareStatusBar barStyle='light-content' hidden={false} translucent={true} backgroundColor="transparent" />
             {
                 loading ? (
@@ -239,7 +239,7 @@ const DetailComic: FunctionComponent = () => {
 
             <Report {...{ modalVisible, setModalVisible, id }}></Report>
 
-        </SafeAreaView>
+        </View>
     )
 }
 
