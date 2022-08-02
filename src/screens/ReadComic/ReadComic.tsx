@@ -116,7 +116,7 @@ export default function ReadComic() {
         <>
 
             <FocusAwareStatusBar
-                barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+                barStyle="light-content"
                 hidden={false}
                 translucent={true}
                 backgroundColor='transparent'

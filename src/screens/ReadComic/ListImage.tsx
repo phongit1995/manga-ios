@@ -1,6 +1,6 @@
 import React, {FunctionComponent, useState, useCallback, useRef, useEffect} from 'react';
 import isEqual from 'react-fast-compare';
-import { View, StyleSheet, Image, Dimensions, Text } from 'react-native';
+import {View, StyleSheet, Image, Dimensions, Text, StatusBar} from 'react-native';
 import ImageFullWith from './ImageFullWith'
 import {SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_WIDTH_No, STATUS_BAR_HEIGHT, TYPE_READ} from '../../constants';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -222,6 +222,7 @@ const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, ind
     console.log({isTurn})
     return (
       <View style={[styles.content, { backgroundColor: isDarkMode ? '#111217' : '#111217' }]}>
+          <StatusBar barStyle="light-content" />
           <View style={{
               justifyContent: 'center',
               alignItems: 'center'
