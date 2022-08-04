@@ -29,6 +29,7 @@ import { stores } from '../../../App'
 import { dispatchNetWork } from '../../redux/action/NetWorkAction'
 import FastImage from 'react-native-fast-image';
 export const iconBack = require('../../assets/image/left-arrow.png');
+import Toast from 'react-native-toast-message';
 export type RootStackParamList = {
     Login: { type: number };
 };
@@ -150,7 +151,14 @@ const Login = () => {
                     initialValues={{ Email: Object.keys(UserReduce.user).length != 0 ? UserReduce.user.email : '', password: Object.keys(UserReduce.user).length != 0 ? UserReduce.user.password : '' }}
                     validationSchema={validationSchema}
                     onSubmit={async (values) => {
-                        if (!isNetWork) return ToastAndroid.show('Check Internet', ToastAndroid.SHORT)
+                        console.log(values);
+                        if (!isNetWork) return Toast.show({
+                            type:"success",
+                            text1:"Success",
+                            text2:"Check internet",
+                            visibilityTime:5000,
+                            
+                        })
                         let user: any = {
                             email: values.Email,
                             password: values.password

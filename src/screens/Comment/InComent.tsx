@@ -7,7 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux'
 import { PostCommentManga, PostRepCommentManga } from '../../api/comments'
 import * as screen from './../../constants/ScreenTypes';
-import { RootState } from '../../redux/reducers'
+import { RootState } from '../../redux/reducers';
+import Toast from 'react-native-toast-message';
 export default function InComent({ color_____, color_, idManga, setstatuscmt, type }) {
     const [value, onChangeText] = React.useState<string>('')
     const state = useSelector((state: RootState) => state)
@@ -28,6 +29,14 @@ export default function InComent({ color_____, color_, idManga, setstatuscmt, ty
         if (type === 0) {
             PostCommentManga(idManga, value, inforUser.token).then((result) => {
                 if (result.data.status === "success") {
+                    const message = result.data?.data?.message ? result.data?.data?.message : "Thanks. Comment are being reviewed" ;
+                    Toast.show({
+                        type:"success",
+                        text1:"Success",
+                        text2:message,
+                        visibilityTime:5000,
+                        
+                    })
                     onChangeText('')
                     setstatuscmt((prve) => !prve)
                 }
@@ -36,6 +45,14 @@ export default function InComent({ color_____, color_, idManga, setstatuscmt, ty
         } else {
             PostRepCommentManga(idManga, value, inforUser.token).then((result) => {
                 if (result.data.status === "success") {
+                    const message = result.data?.data?.message ? result.data?.data?.message : "Thanks. Comment are being reviewed" ;
+                    Toast.show({
+                        type:"success",
+                        text1:"Success",
+                        text2:message,
+                        visibilityTime:5000,
+                        
+                    })
                     onChangeText('')
                     setstatuscmt((prve) => !prve)
                 }
