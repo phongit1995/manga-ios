@@ -10,7 +10,6 @@ import NetWork from '../../components/NetWork';
 import { STATUS_BAR_HEIGHT } from '../../constants';
 import { dispatchNetWork } from '../../redux/action/NetWorkAction'
 import { RootState } from '../../redux/reducers'
-import AdmodService from './../../firebase/Admod';
 import FastImage from 'react-native-fast-image';
 export default function ListComent({ color__, color_____, isDark }) {
     const dispatch = useDispatch()
@@ -77,12 +76,6 @@ export default function ListComent({ color__, color_____, isDark }) {
         }
 
     }
-
-    useFocusEffect(
-        React.useCallback(() => {
-            AdmodService.loadAdmod();
-        }, [])
-    )
     const renderItem = React.useCallback(({ item }) => <Item {...{ color__, item, color_____ }}></Item>, [isDark])
     const keyExtractor = React.useCallback((item, _) => item._id.toString(), [])
     const showComent = () => <FlatList

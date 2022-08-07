@@ -10,13 +10,14 @@ export const icontop2 = require('../../assets/image/a4g.png');
 export const icontop3 = require('../../assets/image/a4h.png');
 export const iconView = require('../../assets/image/a96.png');
 export const iconViews = require('./../../assets/image/eye.png');
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
+
 import FastImage from 'react-native-fast-image';
 const ItemComic = ({ item, index, type, color_, color, color__ }) => {
 
     const navigation = useNavigation();
     const goToDetialComic = (id: String) => {
-        AdmodService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, { id: id, item: item },null);
+        ApplovinService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, { id: id, item: item },null);
     }
 
     const showCategory = React.useCallback(() => {

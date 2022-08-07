@@ -7,7 +7,6 @@ import { changeBackground____, changeBackground_______, changeBackground__, chan
 import FocusAwareStatusBar from '../../components/FocusAwareStatusBar';
 import ListComent from './ListComent';
 import { RootState } from '../../redux/reducers'
-import AdmodService from './../../firebase/Admod';
 import { stores } from '../../../App'
 export type RootStackParamList = {
     COMMUNITY_SCREEN: { name: string, idManga: string };

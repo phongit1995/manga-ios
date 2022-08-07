@@ -14,7 +14,7 @@ import { SCREEN_WIDTH, SCREEN_WIDTH_No } from '../../../constants'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import SQLHelper from '../../../common/SQLHelper';
 import RNFetchBlob from 'rn-fetch-blob'
-import AdmodService from '../../../firebase/Admod';
+import ApplovinService from './../../../Applovin/Applovin';
 
 const Item: FunctionComponent<any> = ({index,dataTotleChap, page, listChapRead, item, id, color________, color____, color__,color_____  }) => {
 
@@ -36,7 +36,7 @@ const Item: FunctionComponent<any> = ({index,dataTotleChap, page, listChapRead, 
 
     const onHandlergoToRead = (idchap, idmanga, name, index) => {
 
-        AdmodService.showAdsFull(SCREEN.DETIAL_CHAPTER, { id: idchap, idChap: idmanga ,dataTotleChap,indexChap:index,page},null);
+        ApplovinService.showAdsFull(SCREEN.DETIAL_CHAPTER, { id: idchap, idChap: idmanga ,dataTotleChap,indexChap:index,page},null);
     }
 
 

@@ -4,7 +4,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { STATUS_BAR_HEIGHT } from './../../constants';
 import * as Screen from '../../constants/ScreenTypes'
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 type headerProps ={
     type:string,  
     color______: string,
@@ -26,7 +26,7 @@ const Header:FunctionComponent<headerProps> = ({ type , color______, color_ }) =
                 onPress={() => {
                     navigation.navigate(Screen.SEARCH_SCREEN)
       
-                    AdmodService.showAdsFull(Screen.SEARCH_SCREEN,null,null);
+                    ApplovinService.showAdsFull(Screen.SEARCH_SCREEN,null,null);
                 }}
             >
                 <AntDesign name="search1" size={25} color={color______} />

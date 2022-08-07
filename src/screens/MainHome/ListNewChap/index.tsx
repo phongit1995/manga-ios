@@ -8,7 +8,8 @@ import { ItemComicProps } from '../../../constants/mangaItem.type'
 import Item from './Item';
 import Loading from '../../../components/Loading';
 import isEqual from 'react-fast-compare';
-import AdmodService from '../../../firebase/Admod';
+import ApplovinService from './../../../Applovin/Applovin';
+
 type ComicHotProps = {
     listComicNewChap: ItemComicProps[],
     loading: boolean,
@@ -25,11 +26,6 @@ const NUMBERSIZE = 100
 const index: FunctionComponent<ComicHotProps> = ({ color__, color____, listComicNewChap, loading }) => {
     const navigation = useNavigation();
     const [_listComicNewChap, setListComicNewChap] = React.useState<Array<ItemComicProps>>([]);
-    useFocusEffect(
-        React.useCallback(() => {
-            AdmodService.loadAdmod();
-        }, [])
-    )
     React.useEffect(() => {
         let listResult: Array<any> = [];
         while (listComicNewChap.length) {
@@ -40,7 +36,7 @@ const index: FunctionComponent<ComicHotProps> = ({ color__, color____, listComic
     const renderItem = ({ item, index }: itemProps) => <Item {...{ color__, color____ }} item={item} key={item._id}></Item>
     const keyExtractor = React.useCallback((item: ItemComicProps, index) => index.toString(), [])
     const onHandlerGoToList = () => {
-        AdmodService.showAdsFull(SCREEN.SHOWALL_LIST_SCREEN, { type: 1 }, null)
+        ApplovinService.showAdsFull(SCREEN.SHOWALL_LIST_SCREEN, { type: 1 }, null)
     }
     const ShowList = () => {
         return (

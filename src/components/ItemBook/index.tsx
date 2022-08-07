@@ -8,15 +8,14 @@ export const icontop1 = require('../../assets/image/a4d.png');
 export const icontop2 = require('../../assets/image/a4g.png');
 export const icontop3 = require('../../assets/image/a4h.png');
 export const iconView = require('../../assets/image/a96.png');
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 import FastImage from 'react-native-fast-image';
 export const iconViews = require('./../../assets/image/eye.png');
 const ItemComic = ({ index, deleteComic, item,name}: any) => {
     const navigation = useNavigation();
     const goToDetialComic = (id: String) => {
-        AdmodService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, { id: id, item: item },null);
+        ApplovinService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, { id: id, item: item },null);
     }
 
     return (

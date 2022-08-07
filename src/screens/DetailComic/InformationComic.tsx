@@ -7,7 +7,7 @@ import { getBundleId } from 'react-native-device-info';
 import { formatViews } from '../../common/stringHelper'
 import * as SCREEN from '../../constants/ScreenTypes'
 import { ItemComicProps } from '../../constants/mangaItem.type'
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 import FastImage from 'react-native-fast-image';
 type DetailComicProps = {
     idcomic?: string,
@@ -42,7 +42,7 @@ const InformationComic: FunctionComponent<DetailComicProps> = ({ color__, setwWi
         }
     };
     const onHandlergoToComent = () => {
-        AdmodService.showAdsFull(SCREEN.COMMENT_SCREEN, { name: item?.name, idManga: item?._id }, null)
+        ApplovinService.showAdsFull(SCREEN.COMMENT_SCREEN, { name: item?.name, idManga: item?._id }, null)
     }
 
     return (

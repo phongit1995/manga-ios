@@ -22,6 +22,8 @@ import { applyMiddleware, compose } from 'redux';
 import { fcmService } from './src/firebase/FCMService';
 import { OnRegisterNotification, onNotification, onOpenNotification } from './src/notification/NotificationService';
 import { localNotificationService } from './src/firebase/LocalNotificationService';
+import  AppLovinMAX from 'react-native-applovin-max';
+import * as config from './config';
 
 import admob, { MaxAdContentRating } from '@react-native-firebase/admob';
 const rootReducer = combineReducers<any>({
@@ -33,10 +35,8 @@ export const stores: any = createStore(rootReducer, compose(...enhancers))
 import {
   purchaseErrorListener,
   purchaseUpdatedListener,
-  ProductPurchase,
   PurchaseError,
   initConnection,
-  finishTransaction
 } from 'react-native-iap';
 import * as RNIap from 'react-native-iap'
 import { dispatchPermium, dispatchNetWork } from './src/redux/action/FunctionAction'
@@ -67,8 +67,16 @@ const App = () => {
 
   React.useEffect(() => {
     let purchaseUpdateSubscription: any = null
-    let purchaseErrorSubscription: any = null
-    initConnection().catch((e) => console.log(e))
+    let purchaseErrorSubscription: any = null;
+    try {
+      AppLovinMAX.initialize(config.APPLOVIN_SDK_KEY, (configuration) => {
+        // SDK is initialized, start loading ads
+        console.log("configuration",configuration)
+      });
+    } catch (error) {
+      
+    }
+    initConnection().catch((e) => console.log('error purchase',e))
       .then(() => {
         RNIap.flushFailedPurchasesCachedAsPendingAndroid().catch((e) => {
           stores.dispatch(dispatchPermium(false))
@@ -94,11 +102,13 @@ const App = () => {
           },
         );
       })
+     
     return () => {
       purchaseErrorSubscription.remove();
       purchaseErrorSubscription = null;
     }
   }, [])
+ 
   const backPressHandler = () => {
     if (backClickCount < 1) {
       backClickCount += 1;

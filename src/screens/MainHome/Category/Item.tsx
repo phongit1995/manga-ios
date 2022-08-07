@@ -3,7 +3,8 @@ import {  StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import isEqual from 'react-fast-compare';
 import * as screen from '../../../constants/ScreenTypes';
-import AdmodService from '../../../firebase/Admod';
+import ApplovinService from './../../../Applovin/Applovin';
+
 import FastImage from 'react-native-fast-image';
 type itemCategoryProps = {
     image: string,
@@ -16,7 +17,7 @@ const Item: FunctionComponent<ItemProps> = ({ item }) => {
     const navigation = useNavigation();
 
     const onHandlerGotoCategory = (i: itemCategoryProps) => {
-        AdmodService.showAdsFull(screen.CATEGORY_SCREEN, { key: i.name },null)
+        ApplovinService.showAdsFull(screen.CATEGORY_SCREEN, { key: i.name },null)
     }
     const showCategory = () => {
         return item.map((item: itemCategoryProps, index: number) => {

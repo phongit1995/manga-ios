@@ -9,7 +9,7 @@ import Header from './Header';
 import * as SCREEN from './../../constants/ScreenTypes'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { useSelector } from 'react-redux'
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 export type RootStackParamList = {
     ChapDowload: { nameChap: string, idManga: string, numberChap: number };
 };
@@ -95,7 +95,7 @@ const ChapDowload = () => {
                 }}
                     activeOpacity={0.7}
                     onPress={() => {
-                        AdmodService.showAdsFull(SCREEN.READ_DOWNLOAD_CHAP_SCREEN, { item__: item },null)
+                        ApplovinService.showAdsFull(SCREEN.READ_DOWNLOAD_CHAP_SCREEN, { item__: item },null)
                     }}
                 >
                     <View style={{ width: '100%' }}>

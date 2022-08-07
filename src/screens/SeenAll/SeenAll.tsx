@@ -6,7 +6,6 @@ import NetWork from '../../components/NetWork';
 import { useRoute, RouteProp, useFocusEffect } from '@react-navigation/native';
 import Header from './Header';
 import isEqual from 'react-fast-compare';
-import AdmodService from './../../firebase/Admod';
 
 export type RootStackParamList = {
     CATEGORY_SCREEN: { type: number };

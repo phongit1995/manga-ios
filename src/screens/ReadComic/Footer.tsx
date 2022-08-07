@@ -11,7 +11,7 @@ export const iconlist = require('../../assets/image/comic.png');
 import Orientation from 'react-native-orientation';
 import SQLHelper from '../../common/SQLHelper';
 import { getDetailChapter } from '../../api/comic';
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 import FastImage from 'react-native-fast-image';
 type footerprops = {
     dataTotleChap: number,
@@ -39,7 +39,7 @@ const Footer: FunctionComponent<footerprops> = React.forwardRef(({ page, indexCh
 
     const onHandlerAfterChap = async () => {
         try {
-            AdmodService.showAdsFull(SCREEN.DETIAL_CHAPTER, { id: afterChapter, idChap: idChap, dataTotleChap, indexChap: indexChap + 1, page: 20 * page < (indexChap + 1) ? page + 1 : page  },'replace');
+            ApplovinService.showAdsFull(SCREEN.DETIAL_CHAPTER, { id: afterChapter, idChap: idChap, dataTotleChap, indexChap: indexChap + 1, page: 20 * page < (indexChap + 1) ? page + 1 : page  },'replace');
         } catch (error) {
 
         }
@@ -47,7 +47,7 @@ const Footer: FunctionComponent<footerprops> = React.forwardRef(({ page, indexCh
 
     const onHandlerBeforerChap = async () => {
         try {
-            AdmodService.showAdsFull(SCREEN.DETIAL_CHAPTER, { id: beforeChapter, idChap: idChap, dataTotleChap, indexChap: indexChap - 1, page: (20 * page) - 20 >= (indexChap - 1) ? page - 1 : page },'replace');
+            ApplovinService.showAdsFull(SCREEN.DETIAL_CHAPTER, { id: beforeChapter, idChap: idChap, dataTotleChap, indexChap: indexChap - 1, page: (20 * page) - 20 >= (indexChap - 1) ? page - 1 : page },'replace');
         } catch (error) {
 
         }
@@ -74,7 +74,7 @@ const Footer: FunctionComponent<footerprops> = React.forwardRef(({ page, indexCh
                 <View >
                     <TouchableOpacity
                         onPress={() => {
-                            AdmodService.showAdsFull(SCREEN.CHAPTER_LIST_SCREEN, { id: idChap, idcomic: id, dataTotleChap },null);
+                            ApplovinService.showAdsFull(SCREEN.CHAPTER_LIST_SCREEN, { id: idChap, idcomic: id, dataTotleChap },null);
                         }}
                         style={styles.listchap}
                     >

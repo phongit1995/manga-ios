@@ -19,7 +19,6 @@ import FocusAwareStatusBar from '../../../components/FocusAwareStatusBar';
 import NetWork from '../../../components/NetWork';
 import { dispatchNetWork } from '../../../redux/action/NetWorkAction'
 import { stores } from '../../../../App'
-import AdmodService from '../../../firebase/Admod';
 export default function RepCmt() {
     const dispatch = useDispatch()
     const router = useRoute<RootRouteProps<'REP_COMMENT_SCREEN'>>();

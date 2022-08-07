@@ -9,7 +9,7 @@ export const icontop2 = require('../../assets/image/a4g.png');
 export const icontop3 = require('../../assets/image/a4h.png');
 export const iconViews = require('./../../assets/image/eye.png');
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import FastImage from 'react-native-fast-image';
 const ItemDownload = ({ isDark, deleteComic, item, color, color__ }: any) => {
@@ -17,7 +17,7 @@ const ItemDownload = ({ isDark, deleteComic, item, color, color__ }: any) => {
     const navigation = useNavigation();
     const goToDetialComic = () => {
 
-        AdmodService.showAdsFull(SCREEN.DOWNLOAD_CHAP_SCREEN, { idManga: item.idManga, nameChap: _item.name, numberChap: item.numberChap },null)
+        ApplovinService.showAdsFull(SCREEN.DOWNLOAD_CHAP_SCREEN, { idManga: item.idManga, nameChap: _item.name, numberChap: item.numberChap },null)
     }
 
     const showCategory = React.useCallback(() => {

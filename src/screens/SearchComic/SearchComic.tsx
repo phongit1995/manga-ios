@@ -14,7 +14,6 @@ import ListSearch from './ListSearch';
 import { RootState } from '../../redux/reducers'
 import { changeBackground, changeBackground_, changeBackground__, changeBackground___ } from '../../common/stringHelper';
 import NetWork from '../../components/NetWork';
-import AdmodService from './../../firebase/Admod';
 import { useFocusEffect } from '@react-navigation/native';
 import { getListCategory } from './../../api/category';
 import { stores, cache } from '../../../App'

@@ -35,7 +35,6 @@ import {
 } from '../../common/stringHelper';
 export const iconBackTop = require('../../assets/image/top.png')
 export const iconLove = require('../../assets/image/lf30_editor_ilhncfag.json');
-import AdmodService from './../../firebase/Admod';
 import { stores } from '../../../App'
 export type RootStackParamList = {
     DETIAL_COMIC_SCREEN: { item: ItemComicProps, id: string };

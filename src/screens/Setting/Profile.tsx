@@ -8,7 +8,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import FastImage from 'react-native-fast-image'
 import { PostUpdateInforUser } from '../../api/user';
 import { UploadFile } from './../../api/upload';
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 import Loading from '../../components/Loading';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 export default function Profile({ loading, setavatar, avatar, inforUser, isToggleBackground, color_, color___ }) {
@@ -48,11 +48,11 @@ export default function Profile({ loading, setavatar, avatar, inforUser, isToggl
     }
  
     const onHandlerLogin = () => {
-        AdmodService.showAdsFull(screen.LOGIN_SCREEN,null,null);
+        ApplovinService.showAdsFull(screen.LOGIN_SCREEN,null,null);
     }
 
     const onHandlerSignUp = () => {
-        AdmodService.showAdsFull(screen.SIGN_UP_SCREEN,null,null);
+        ApplovinService.showAdsFull(screen.SIGN_UP_SCREEN,null,null);
     }
 
     return (

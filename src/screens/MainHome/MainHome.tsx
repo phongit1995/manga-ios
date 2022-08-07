@@ -27,7 +27,6 @@ import {
     changeBackground________
 } from '../../common/stringHelper';
 import { useFocusEffect } from '@react-navigation/native';
-import AdmodService from './../../firebase/Admod';
 import { dispatchNetWork } from '../../redux/action/NetWorkAction'
 type categoryItemProps = {
     _id: string,

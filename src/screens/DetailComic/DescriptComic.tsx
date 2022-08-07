@@ -6,7 +6,7 @@ import { ItemComicProps } from '../../constants/mangaItem.type'
 import EvilIcons from 'react-native-vector-icons/Entypo'
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as screen from './../../constants/ScreenTypes';
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 type DescriptComicProps = {
     item: ItemComicProps,
     color________: string,
@@ -24,7 +24,7 @@ const DescriptComic: FunctionComponent<DescriptComicProps> = ({ item, color_____
                 return (
                     <TouchableOpacity
                         onPress={() => {
-                            AdmodService.showAdsFull(screen.CATEGORY_SCREEN, { key: item },'replace');
+                            ApplovinService.showAdsFull(screen.CATEGORY_SCREEN, { key: item },'replace');
                         }}
                         key={index}
                         activeOpacity={0.7}>

@@ -9,7 +9,6 @@ import { useRoute, RouteProp, useFocusEffect } from '@react-navigation/native';
 import Header from './Header';
 import { useDispatch, useSelector } from 'react-redux'
 import NetWork from '../../components/NetWork';
-import AdmodService from './../../firebase/Admod';
 export type RootStackParamList = {
     CATEGORY_SCREEN: { key: string };
 };

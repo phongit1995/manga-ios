@@ -5,7 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 import * as SCREEN from '../../../constants/ScreenTypes';
 import { SCREEN_WIDTH } from '../../../constants'
 import { ItemComicProps } from '../../../constants/mangaItem.type';
-import AdmodService from '../../../firebase/Admod';
+import ApplovinService from './../../../Applovin/Applovin';
+
 import FastImage from 'react-native-fast-image';
 type ItemSuggestProps = {
     item: ItemComicProps,
@@ -14,7 +15,7 @@ type ItemSuggestProps = {
 const Item: FunctionComponent<ItemSuggestProps> = ({ color____, item }) => {
     const navigation = useNavigation();
     const _goToDetialComic = (id: string) => {
-        AdmodService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, {
+        ApplovinService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, {
             id: id
         }, null);
     }

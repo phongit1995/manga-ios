@@ -8,7 +8,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons'
 import Loading from '../../../components/Loading';
 import isEqual from 'react-fast-compare';
 import { navigate } from '../../../navigations/NavigationService'
-import AdmodService from '../../../firebase/Admod';
+import ApplovinService from './../../../Applovin/Applovin';
 type ComicHotProps = {
     listComic: ItemComicProps[],
     loading: boolean,
@@ -62,7 +62,7 @@ const ListHot: FunctionComponent<ComicHotProps> = ({ listComic, loading, type, c
         )
     }
     const onHandlerGotoList = () => {
-        AdmodService.showAdsFull(SCREEN.SHOWALL_LIST_SCREEN, { type }, null)
+        ApplovinService.showAdsFull(SCREEN.SHOWALL_LIST_SCREEN, { type }, null)
     }
     return (
         <View style={styles.container}>

@@ -3,12 +3,12 @@ import { Image, StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import isEqual from 'react-fast-compare';
 import * as screen from '../../constants/ScreenTypes'
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 export const iconSearch = require('../../assets/image/search1.png');
 const Header: FunctionComponent = () => {
     const navigation = useNavigation<any>();
     function onHandlerGoToSearch() {
-        AdmodService.showAdsFull(screen.SEARCH_SCREEN, null, null);
+        ApplovinService.showAdsFull(screen.SEARCH_SCREEN, null, null);
     }
     return (
         <View style={styles.container}>

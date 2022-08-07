@@ -9,7 +9,6 @@ import { changeBackground____, changeBackground___, changeBackground__, changeBa
 import FocusAwareStatusBar from '../../components/FocusAwareStatusBar';
 import NetWork from '../../components/NetWork';
 import { RootState } from '../../redux/reducers'
-import AdmodService from './../../firebase/Admod';
 import { stores } from '../../../App'
 import { dispatchNetWork } from '../../redux/action/NetWorkAction'
 export type RootStackParamList = {

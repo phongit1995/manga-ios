@@ -3,15 +3,15 @@ import { Text, View, StyleSheet, Image, TouchableOpacity, ToastAndroid } from 'r
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as screen from './../../constants/ScreenTypes';
 import moment from 'moment'
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 export default function Item({ color__, item, color_____ }) {
     const navigation = useNavigation();
 
     const onHandlergoToComent = () => {
-        AdmodService.showAdsFull(screen.REP_COMMENT_SCREEN, { item_: item, idRepcmt: item._id },null)
+        ApplovinService.showAdsFull(screen.REP_COMMENT_SCREEN, { item_: item, idRepcmt: item._id },null)
     }
     const onHandlergoToManga = () => {
-        AdmodService.showAdsFull(screen.DETIAL_COMIC_SCREEN, { id: item.manga._id },null)
+        ApplovinService.showAdsFull(screen.DETIAL_COMIC_SCREEN, { id: item.manga._id },null)
     }
     const withPadding = (duration) => {
         if (duration.asDays() > 0) {

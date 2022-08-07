@@ -21,7 +21,7 @@ import * as Yup from 'yup';
 import isEqual from 'react-fast-compare';
 import { changeBackground, changeBackground_, changeBackground__ } from '../../common/stringHelper';
 import FocusAwareStatusBar from '../../components/FocusAwareStatusBar';
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 import { RootState } from '../../redux/reducers'
 import { stores } from '../../../App'
 import { dispatchNetWork } from '../../redux/action/NetWorkAction'
@@ -201,7 +201,7 @@ const SignUp = () => {
                                     <TouchableOpacity
                                         activeOpacity={0.8}
                                         onPress={() => {
-                                            AdmodService.showAdsFull(screen.LOGIN_SCREEN,null,null)
+                                            ApplovinService.showAdsFull(screen.LOGIN_SCREEN,null,null)
                                         }}
                                     >
                                         <Text style={{ color: '#d34150', fontFamily: 'Averta-Bold', }}>Sign In</Text>

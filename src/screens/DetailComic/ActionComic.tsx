@@ -7,7 +7,6 @@ export const iconLove = require('../../assets/image/lf30_editor_ilhncfag.json');
 import isEqual from 'react-fast-compare';
 import { ItemComicProps } from '../../constants/mangaItem.type'
 import {paddingBottom, SCREEN_WIDTH, SCREEN_WIDTH_No} from '../../constants'
-import AdmodService from './../../firebase/Admod';
 const iconRead = require('../../assets/image/fairy-tale.png')
 const iconFollow = require('../../assets/image/heart.png')
 const iconunFollow = require('../../assets/image/love.png')

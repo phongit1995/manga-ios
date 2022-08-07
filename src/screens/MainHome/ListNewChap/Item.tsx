@@ -10,7 +10,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 export const iconViews = require('../../../assets/image/eye.png');
 export const iconView = require('../../../assets/image/a96.png');
 export const iconNews = require('../../../assets/image/aav3.png');
-import AdmodService from '../../../firebase/Admod';
+import ApplovinService from './../../../Applovin/Applovin';
 import { ItemComicProps } from '../../../constants/mangaItem.type'
 import FastImage from 'react-native-fast-image';
 
@@ -22,14 +22,14 @@ type ItemNewProps = {
 const Item: FunctionComponent<ItemNewProps> = ({ color__, color____, item }) => {
     const navigation = useNavigation();
     const _goToDetialComic = (id: string) => {
-        // AdmodService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, {
-        //     item: item,
-        //     id: id
-        // },null);
-        navigation.navigate(SCREEN.DETIAL_COMIC_SCREEN, {
+        ApplovinService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, {
             item: item,
             id: id
-        })
+        },null);
+        // navigation.navigate(SCREEN.DETIAL_COMIC_SCREEN, {
+        //     item: item,
+        //     id: id
+        // })
         
     }
     const showCategory = React.useCallback((e) => {

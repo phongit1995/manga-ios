@@ -10,7 +10,6 @@ import CustomModal from '../../components/CustomModal/CustomModal';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Toast from 'react-native-toast-message';
 import { STATUS_BAR_HEIGHT } from '../../constants';
-import AdmodService from './../../firebase/Admod';
 import { stores } from '../../../App'
 import Search from './Search';
 import FastImage from 'react-native-fast-image';

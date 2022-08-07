@@ -34,7 +34,6 @@ import ModalPage from '../../DetailComic/InformationChap/ModalPage';
 import FocusAwareStatusBar from '../../../components/FocusAwareStatusBar';
 import { RootState } from '../../../redux/reducers'
 import { useFocusEffect } from '@react-navigation/native';
-import AdmodService from '../../../firebase/Admod';
 import { stores } from '../../../../App'
 import { dispatchNetWork } from '../../../redux/action/NetWorkAction'
 export type RootStackParamList = {
@@ -66,11 +65,6 @@ const ListChapter: FunctionComponent<any> = () => {
     React.useEffect(() => {
         dispatch(dispatchNetWork())
     },[])
-    React.useEffect(() => {
-        if (stores.getState().FunctionReduce.isPremium) return
-        AdmodService.loadAdmod();
-    },[])
-
     React.useEffect(() => {
         SQLHelper.getaddhistoryMangaChapter(id)
             .then((result: any) => {

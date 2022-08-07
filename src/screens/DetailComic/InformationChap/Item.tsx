@@ -19,7 +19,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { PermissonRequiredDowload } from './../../../common/PermissionRequired';
 import { useDispatch, useSelector } from 'react-redux'
 export const iconDowload = require('../../../assets/image/cloud-download.png')
-import AdmodService from '../../../firebase/Admod';
+import  ApplovinService  from './../../../Applovin/Applovin';
 import * as RNFS from 'react-native-fs';
 import FastImage from 'react-native-fast-image';
 type itemChapProps = {
@@ -162,7 +162,7 @@ const Item: FunctionComponent<itemChapProps> = ({ color________, isPremium, coun
             /[^.]+$/.exec(filename) : undefined;
     };
     const onHandlergoToRead = (idchap, idmanga, name, index_) => {
-        AdmodService.showAdsFull(SCREEN.DETIAL_CHAPTER, { id: idchap, idChap: idmanga, dataTotleChap, indexChap: index_, page },null);
+        ApplovinService.showAdsFull(SCREEN.DETIAL_CHAPTER, { id: idchap, idChap: idmanga, dataTotleChap, indexChap: index_, page },null);
     }
 
     return (

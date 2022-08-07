@@ -6,7 +6,8 @@ import { SCREEN_WIDTH, SCREEN_WIDTH_No } from '../../../constants'
 import { ItemComicProps } from '../../../constants/mangaItem.type'
 export const iconhot = require('../../../assets/image/h.png');
 export const iconNews = require('../../../assets/image/aav3.png');
-import AdmodService from '../../../firebase/Admod';
+import ApplovinService from './../../../Applovin/Applovin';
+
 import { useFocusEffect } from '@react-navigation/core';
 import FastImage from 'react-native-fast-image';
 type itemPropss = {
@@ -19,7 +20,7 @@ type itemPropss = {
 
 const Item: FunctionComponent<itemPropss> = ({ item, type, index, color__, color____ }) => {
     const _goToDetialComic = (id: string) => {
-        AdmodService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, {
+        ApplovinService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, {
             item: item,
             id: id
         }, null);

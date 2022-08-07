@@ -3,13 +3,13 @@ import { Text, View, StyleSheet, TouchableOpacity, ToastAndroid } from 'react-na
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as screen from '../../../constants/ScreenTypes';
 import moment from 'moment'
-import AdmodService from '../../../firebase/Admod';
+import ApplovinService from './../../../Applovin/Applovin';
 import FastImage from 'react-native-fast-image';
 export default function Item({ color__, item, idRepcmt, noRep }) {
     const navigation = useNavigation();
 
     const onHandlerGotoRep = () => {
-        AdmodService.showAdsFull(screen.REP_COMMENT_SCREEN, { idRepcmt: idRepcmt ? idRepcmt : item?._id, item_: item }, null);
+        ApplovinService.showAdsFull(screen.REP_COMMENT_SCREEN, { idRepcmt: idRepcmt ? idRepcmt : item?._id, item_: item }, null);
     }
 
 

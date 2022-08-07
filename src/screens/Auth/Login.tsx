@@ -23,7 +23,7 @@ import isEqual from 'react-fast-compare';
 import { changeBackground, changeBackground_, changeBackground__ } from '../../common/stringHelper';
 import { LoginRequest, LoginSuccess } from '../../redux/action/UserAction'
 import FocusAwareStatusBar from '../../components/FocusAwareStatusBar';
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 import { RootState } from '../../redux/reducers'
 import { stores } from '../../../App'
 import { dispatchNetWork } from '../../redux/action/NetWorkAction'
@@ -123,7 +123,7 @@ const Login = () => {
 
     const onHandlerSignUp = () => {
 
-        AdmodService.showAdsFull(screen.SIGN_UP_SCREEN, null, null)
+        ApplovinService.showAdsFull(screen.SIGN_UP_SCREEN, null, null)
     }
 
     return (

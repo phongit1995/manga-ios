@@ -27,7 +27,8 @@ import { LogoutRequest } from '../../redux/action/UserAction'
 import { getInforUser } from '../../api/user';
 import { STATUS_BAR_HEIGHT } from '../../constants';
 import { RootState } from '../../redux/reducers'
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
+
 
 import { stores,cache } from '../../../App'
 const Setting: FunctionComponent = () => {
@@ -188,7 +189,7 @@ const Setting: FunctionComponent = () => {
                 { isPremium ? null : (
                 <TouchableOpacity
                     onPress={() => {
-                        AdmodService.showAdsFull(screen.PERMIUM_SCREEN,null,null);
+                        ApplovinService.showAdsFull(screen.PERMIUM_SCREEN,null,null);
                     }}
                     activeOpacity={0.8}
                     style={styles.containerTxtPermium}>

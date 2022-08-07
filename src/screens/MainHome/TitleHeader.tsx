@@ -5,7 +5,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native';
 import * as SCREEN from './../../constants/ScreenTypes';
-import AdmodService from './../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 import { getInforUser } from '../../api/user';
 import { stores } from '../../../App'
 export const imageNoUser = require('./../../assets/image/header-default.png')
@@ -44,10 +44,10 @@ const TitleHeader: FunctionComponent<TitleHeaderProps> = ({ color____ }) => {
     )
     function onHandlerGotoSetting() {
         navigation.navigate(SCREEN.SETTING_SCREEN)
-        AdmodService.showAdsFull(SCREEN.SETTING_SCREEN,null,null);
+        ApplovinService.showAdsFull(SCREEN.SETTING_SCREEN,null,null);
     }
     function onHandlerGotoLogin() {
-        AdmodService.showAdsFull(SCREEN.LOGIN_SCREEN,null,null);
+        ApplovinService.showAdsFull(SCREEN.LOGIN_SCREEN,null,null);
     }
     
     const showIconUser = () => {

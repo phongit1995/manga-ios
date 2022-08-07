@@ -5,7 +5,7 @@ import ImageFullWith from './ImageFullWith'
 import {SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_WIDTH_No, STATUS_BAR_HEIGHT, TYPE_READ} from '../../constants';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as SCREEN from '../../constants/ScreenTypes';
-import AdmodService from '../../firebase/Admod';
+import ApplovinService from './../../Applovin/Applovin';
 import { RecyclerListView, DataProvider, LayoutProvider } from "recyclerlistview";
 import { LongPressGestureHandler, ScrollView, State, TapGestureHandler, FlatList } from 'react-native-gesture-handler';
 const {height, width} = Dimensions.get('window');
@@ -106,12 +106,6 @@ const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, ind
             setCount(e => e + 1)
         }
     };
-    useFocusEffect(
-      React.useCallback(() => {
-          AdmodService.loadAdmod();
-      }, [])
-    )
-
     React.useEffect(() => {
         let timer = setTimeout(() => {
             scrollY.setValue((SCREEN_HEIGHT / 9.5) + STATUS_BAR_HEIGHT);
@@ -122,7 +116,7 @@ const ListImage: FunctionComponent<any> = ({ isDarkMode, afterChapter, page, ind
     const __goToNextChap = () => {
         try {
             if (afterChapter) {
-                AdmodService.showAdsFull(SCREEN.DETIAL_CHAPTER, { id: afterChapter, idChap: idChap, dataTotleChap, indexChap: indexChap + 1, page: 20 * page < (indexChap + 1) ? page + 1 : page }, 'replace');
+                ApplovinService.showAdsFull(SCREEN.DETIAL_CHAPTER, { id: afterChapter, idChap: idChap, dataTotleChap, indexChap: indexChap + 1, page: 20 * page < (indexChap + 1) ? page + 1 : page }, 'replace');
 
             }
         } catch (error) {

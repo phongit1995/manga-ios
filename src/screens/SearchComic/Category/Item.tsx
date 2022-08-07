@@ -4,14 +4,15 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as screen from '../../../constants/ScreenTypes'
 import isEqual from 'react-fast-compare';
 import { RectButton } from 'react-native-gesture-handler';
-import AdmodService from '../../../firebase/Admod';
+import ApplovinService from './../../../Applovin/Applovin';
+
 const Item: FunctionComponent<any> = ({ item }) => {
     const navigation = useNavigation()
  
     return (
         <RectButton
             onPress={() => {
-                AdmodService.showAdsFull(screen.CATEGORY_SCREEN, { key: item.name },null);
+                ApplovinService.showAdsFull(screen.CATEGORY_SCREEN, { key: item.name },null);
             }}
             style={styles.container}
         >

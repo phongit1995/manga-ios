@@ -7,13 +7,14 @@ import { RectButton } from 'react-native-gesture-handler';
 import isEqual from 'react-fast-compare';
 const { width } = Dimensions.get("window");
 export const iconView = require('../../../assets/image/a96.png');
-import AdmodService from '../../../firebase/Admod';
+import ApplovinService from './../../../Applovin/Applovin';
+
 const Item = ({ data, color__, color }) => {
 
     const navigation = useNavigation();
  
     const goToDetialComic = (id: String) => {
-        AdmodService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, { id: id, item: data },null)
+        ApplovinService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, { id: id, item: data },null)
     }
 
     const showCategory = React.useCallback(() => {

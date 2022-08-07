@@ -14,7 +14,6 @@ import SQLHelper from '../../common/SQLHelper';
 import {paddingBottom, SCREEN_HEIGHT, SCREEN_WIDTH_No} from '../../constants';
 import FocusAwareStatusBar from '../../components/FocusAwareStatusBar';
 import { RootState } from '../../redux/reducers'
-import AdmodService from './../../firebase/Admod';
 import { useFocusEffect } from '@react-navigation/native';
 import { dispatchNetWork } from '../../redux/action/NetWorkAction'
 import { stores } from '../../../App'
