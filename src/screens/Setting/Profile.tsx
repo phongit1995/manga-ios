@@ -15,7 +15,7 @@ export default function Profile({ loading, setavatar, avatar, inforUser, isToggl
     const navigation = useNavigation();
     const color__ = isToggleBackground ? '#fff' : '#EE3340'
     const color = isToggleBackground ? '#000' : '#fff'
-
+    console.log('inforUser',inforUser);
     const changleAvatar = () => {
         if (inforUser) {
 

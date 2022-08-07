@@ -40,6 +40,7 @@
     "react-native": "0.63.4",
     "react-native-animatable": "^1.3.3",
     "react-native-animated-screen": "^1.0.4",
+    "react-native-applovin-max": "^3.3.0",
     "react-native-cache": "^2.0.1",
     "react-native-code-push": "^7.0.0",
     "react-native-device-info": "^7.3.1",

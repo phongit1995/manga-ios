@@ -6767,6 +6767,11 @@ react-native-animated-screen@^1.0.4:
     react-native-responsive-screen "^1.4.1"
     react-native-safe-area-context "^3.1.1"
 
+react-native-applovin-max@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-applovin-max/-/react-native-applovin-max-3.3.0.tgz#0c6db97a544c784ea3b2fced3f172505b3b0e48d"
+  integrity sha512-qZS00gaZwr48okpm53xZouoXYamkuq3cHhxPnHCIQ/UhHQw9AfUP34unpLUX+nvLAG0//7ZEaL3rh5+01b68vA==
+
 react-native-cache@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/react-native-cache/-/react-native-cache-2.0.1.tgz#a90227672ca3b32e1288910fc149df95f4f2f007"

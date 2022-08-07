@@ -25,7 +25,7 @@ export const PostUpdateInforUser = (avatar: string, token: string): Promise<Resp
     })
 }
 export const getInforUser = (token: string): Promise<ResponseApiFull<any>> => {
-    return axios.get('user/get-me-info', {
+    return axios.get('user/me-info', {
         headers: {
             'token': token
         }

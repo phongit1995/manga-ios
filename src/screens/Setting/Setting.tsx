@@ -55,6 +55,7 @@ const Setting: FunctionComponent = () => {
 
     React.useEffect(() => {
         (() => {
+            console.log('token',UserReduce?.user?.token);
             if (UserReduce?.user && UserReduce?.user?.token) {
                 if (Object.keys(UserReduce.user).length != 0) {
                     getInforUser(UserReduce.user.token).then((result) => {
