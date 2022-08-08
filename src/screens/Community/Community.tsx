@@ -7,7 +7,7 @@ import { changeBackground____, changeBackground_______, changeBackground__, chan
 import FocusAwareStatusBar from '../../components/FocusAwareStatusBar';
 import ListComent from './ListComent';
 import { RootState } from '../../redux/reducers'
-import { stores } from '../../../App'
+import {InAppReviewFn} from './../../common/InAppReview';
 export type RootStackParamList = {
     COMMUNITY_SCREEN: { name: string, idManga: string };
 };
@@ -28,7 +28,9 @@ export default function Community() {
     const color_____ = isDarkMode ? '#1e1e23' : '#FFF'
     const color______ = changeBackground_____(isDarkMode)
 
-
+    useFocusEffect(React.useCallback(()=>{
+        InAppReviewFn();
+    },[]))
     return (
         <View style={styles.container}>
             <FocusAwareStatusBar

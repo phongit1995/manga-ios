@@ -27,7 +27,8 @@ import {
     changeBackground________
 } from '../../common/stringHelper';
 import { useFocusEffect } from '@react-navigation/native';
-import { dispatchNetWork } from '../../redux/action/NetWorkAction'
+import { dispatchNetWork } from '../../redux/action/NetWorkAction';
+import {InAppReviewFn} from './../../common/InAppReview';
 type categoryItemProps = {
     _id: string,
     name: string,
@@ -63,7 +64,7 @@ const MainHome: FunctionComponent = () => {
         setListSuggest([])
     }
     React.useEffect(() => {
-        if (stores.getState().FunctionReduce.isPremium) return
+        InAppReviewFn();
     }, [])
     React.useEffect(() => {
         (async () => {
@@ -166,9 +167,9 @@ const MainHome: FunctionComponent = () => {
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: color__ }]}>
-            <FocusAwareStatusBar
-                barStyle={colorStatusBar}
-                hidden={true}
+           <FocusAwareStatusBar
+                barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+                hidden={false}
                 translucent={true}
                 backgroundColor={color___}
             />

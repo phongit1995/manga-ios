@@ -28,6 +28,7 @@ import { getInforUser } from '../../api/user';
 import { STATUS_BAR_HEIGHT } from '../../constants';
 import { RootState } from '../../redux/reducers'
 import ApplovinService from './../../Applovin/Applovin';
+import {InAppReviewFn} from './../../common/InAppReview';
 
 
 import { stores,cache } from '../../../App'
@@ -53,7 +54,9 @@ const Setting: FunctionComponent = () => {
     const [inforUser, setInforUser] = React.useState<any>(null)
     const [avatar, setavatar] = React.useState<string>('')
     const [loading, setloading] = React.useState<boolean>(true)
-
+    useFocusEffect(React.useCallback(()=>{
+        InAppReviewFn();
+    },[]))
     React.useEffect(() => {
         (() => {
             console.log('token',UserReduce?.user?.token);
