@@ -351,18 +351,25 @@ class SqlHelper {
             })
         })
     }
-
-
     addhistoryMangaChapter(manga_id, chapter_id, chapter_name, index_) {
         this.db.transaction((tx: { executeSql: (arg0: string, arg1: string[], arg2: (txt: any, result: any) => void, arg3: (error: any) => void) => void; }) => {
-            tx.executeSql("SELECT * FROM history_manga_chapter where manga_id=?", [manga_id], (txt, result) => {
+            tx.executeSql(
+              'SELECT * FROM history_manga_chapter where chapter_id=?',
+              [chapter_id],
+              (txt, result) => {
                 if (result.rows.length > 0) {
-                    txt.executeSql("UPDATE history_manga_chapter SET chapter_id= ?,chapter_name=?,date=?,number=? where manga_id = ?",
-                        [chapter_id, chapter_name, Date.now(), index_, manga_id], (tx, results) => {
-                            if (results.rowsAffected > 0) {
-                                console.log('history_manga_chapter Successfully update')
-                            } else console.log('history_manga_chapter Failed update');
-                        })
+                    txt.executeSql(
+                      'UPDATE history_manga_chapter date=? where chapter_id = ?',
+                      [Date.now(),chapter_id],
+                      (tx, results) => {
+                        if (results.rowsAffected > 0) {
+                          console.log(
+                            'history_manga_chapter Successfully update',
+                          );
+                        } else
+                          console.log('history_manga_chapter Failed update');
+                      },
+                    );
                 }
                 else {
                     txt.executeSql(`INSERT INTO history_manga_chapter(manga_id, chapter_id,chapter_name, date,number) VALUES (?,?,?,?,?)`, [manga_id, chapter_id, chapter_name, Date.now(), index_], (tx, results) => {
@@ -371,10 +378,11 @@ class SqlHelper {
                         } else console.log('history_manga_chapter Failed');
                     })
                 }
-            }, (error) => console.log(error))
+              },
+              (error) => console.log(error),
+            );
         });
     }
-
 
 
     getaddhistoryMangaChapter(manga_id) {

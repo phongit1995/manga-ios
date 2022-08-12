@@ -7,7 +7,7 @@ type headerProps = {
     item:any,
     opacity: any
 }
-const NUMBERHEIGHT = 55 + STATUS_BAR_HEIGHT
+const NUMBERHEIGHT = 55+ STATUS_BAR_HEIGHT
 const HeaderName: FunctionComponent<headerProps> = ({ item, opacity }) => {
 
     return (
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     containerName: {
         position: 'absolute',
         top: 0,
-        marginHorizontal: 40,
+        marginHorizontal: 30,
 
         flexDirection: 'row',
         alignItems: 'center',

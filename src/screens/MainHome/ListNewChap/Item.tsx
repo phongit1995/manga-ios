@@ -22,14 +22,10 @@ type ItemNewProps = {
 const Item: FunctionComponent<ItemNewProps> = ({ color__, color____, item }) => {
     const navigation = useNavigation();
     const _goToDetialComic = (id: string) => {
-        ApplovinService.showAdsFull(SCREEN.DETIAL_COMIC_SCREEN, {
+        navigation.navigate(SCREEN.DETIAL_COMIC_SCREEN, {
             item: item,
             id: id
-        },null);
-        // navigation.navigate(SCREEN.DETIAL_COMIC_SCREEN, {
-        //     item: item,
-        //     id: id
-        // })
+        })
         
     }
     const showCategory = React.useCallback((e) => {

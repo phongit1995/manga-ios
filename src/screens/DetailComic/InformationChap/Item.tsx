@@ -46,18 +46,26 @@ const Item: FunctionComponent<itemChapProps> = ({ color________, isPremium, coun
     const [isdowload, setDowload] = React.useState<boolean>(false)
     const [isRead, setisRead] = React.useState<boolean>(false)
     const [loading, setloading] = React.useState<any>(false)
-
+    const [isReadNew, setIsReadNew] = React.useState<boolean>(false);
     React.useEffect(() => {
         let isMounted = true;
         (() => {
             if (listChapRead.length != 0 && isMounted) {
-                if (listChapRead[0].chapter_id === item._id) {
-                    setisRead(true)
-                }
+                listChapRead.forEach((itemRead,index)=>{
+                    if(index==0 ){
+                        if(itemRead.chapter_id==item._id){
+                            setIsReadNew(true);
+                        }
+                    }
+                    if(itemRead.chapter_id==item._id ){
+                        setisRead(true);
+                    }
+                })
             }
         })()
         return () => {
-            setisRead(false)
+            setisRead(false);
+            setIsReadNew(false);
             isMounted = false;
         }
     }, [listChapRead])
@@ -183,10 +191,8 @@ const Item: FunctionComponent<itemChapProps> = ({ color________, isPremium, coun
                 onPress={() => onHandlergoToRead(item?._id, id_, item?.name, item?.index)}
             >
                 <View style={styles.Chapter_}>
-                    <Text numberOfLines={1} allowFontScaling={false} style={[styles.name, { color: isRead ? '#e63946' : color__ }]} >{item?.index}. {item?.name}</Text>
-                    <Text allowFontScaling={false} style={[styles.txtdate, {
-                        color: isRead ? '#e63946' : color__
-                    }]}>
+                    <Text numberOfLines={1} allowFontScaling={false} style={[styles.name, {color: isReadNew ? '#e63946' : isRead ? '#b07f17' : color__}]} >{item?.index}. {item?.name}</Text>
+                    <Text allowFontScaling={false} style={[styles.txtdate, {color: isReadNew ? '#e63946' : isRead ? '#b07f17' : color__}]}>
                         {item?.createdAt?.split(/T.*/)[0]}
                     </Text>
                 </View>
