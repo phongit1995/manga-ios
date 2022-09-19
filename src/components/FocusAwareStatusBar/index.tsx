@@ -5,7 +5,8 @@ import isEqual from 'react-fast-compare';
 
 function FocusAwareStatusBar(props) {
     const isFocused = useIsFocused();
-
-    return isFocused ? <StatusBar {...props} setStyleStatusBar="black"/> : null;
+    console.log('isFocused',isFocused);
+    //return isFocused ? <StatusBar {...props} setStyleStatusBar="black"/> : null;
+    return <StatusBar  setStyleStatusBar="black" {...props}/> ;
 }
 export default React.memo(FocusAwareStatusBar, isEqual)

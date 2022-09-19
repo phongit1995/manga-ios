@@ -36,7 +36,7 @@ const Setting: FunctionComponent = () => {
     const navigation = useNavigation();
     const dispatch = useDispatch()
     const state = useSelector((state: RootState) => state)
-    const { isDarkMode , isPremium} = state.FunctionReduce;
+    const { isDarkMode  } = state.FunctionReduce;
     const [isEnabled, setIsEnabled] = React.useState<boolean>(true);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     const [isToggleBackground, setToggleBackground] = React.useState<boolean>(isDarkMode);
@@ -53,34 +53,37 @@ const Setting: FunctionComponent = () => {
     const { UserReduce } = state
     const [inforUser, setInforUser] = React.useState<any>(null)
     const [avatar, setavatar] = React.useState<string>('')
-    const [loading, setloading] = React.useState<boolean>(true)
+    const [loading, setloading] = React.useState<boolean>(true);
+    const [isPremium, setIsPremium] = React.useState<boolean>(false);
     useFocusEffect(React.useCallback(()=>{
         InAppReviewFn();
     },[]))
-    React.useEffect(() => {
-        (() => {
-            console.log('token',UserReduce?.user?.token);
-            if (UserReduce?.user && UserReduce?.user?.token) {
-                if (Object.keys(UserReduce.user).length != 0) {
-                    getInforUser(UserReduce.user.token).then((result) => {
-                        if (result.data.status === "success") {
-                            setavatar(result.data.data.avatar)
-                            setInforUser({
-                                data: result.data.data,
-                                token: UserReduce.user.token
-                            })
-                            setloading(false)
-                            return
-                        }
-                    })
-                }
-            } else {
-                setInforUser(null)
-                setloading(false)
+    useFocusEffect(React.useCallback(()=>{
+        setIsPremium(stores.getState().FunctionReduce.isPremium);
+    },[]))
+    useFocusEffect(React.useCallback(()=>{
+        console.log('token',UserReduce?.user?.token);
+        console.log('state',state.FunctionReduce);
+        console.log(stores.getState().FunctionReduce.isPremium)
+        if (UserReduce?.user && UserReduce?.user?.token) {
+            if (Object.keys(UserReduce.user).length != 0) {
+                getInforUser(UserReduce.user.token).then((result) => {
+                    if (result.data.status === "success") {
+                        setavatar(result.data.data.avatar)
+                        setInforUser({
+                            data: result.data.data,
+                            token: UserReduce.user.token
+                        })
+                        setloading(false)
+                        return
+                    }
+                })
             }
-
-        })()
-    }, [UserReduce.user])
+        } else {
+            setInforUser(null)
+            setloading(false)
+        }
+    },[UserReduce.user]))
     const _OnShareApp = async () => {
         try {
             const result = await Share.share({

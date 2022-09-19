@@ -21,6 +21,7 @@ import {
     changeBackground______
 } from '../../common/stringHelper';
 import FastImage from 'react-native-fast-image';
+import Toast from 'react-native-toast-message';
 const initialLayout = { width: Dimensions.get('window').width };
 const Activity = () => {
     const [index, setIndex] = React.useState<number>(0);
@@ -39,10 +40,20 @@ const Activity = () => {
     const colorBorder = changeBackground____(isDarkMode)
 
     const showAlert = () => {
-        return ToastAndroid.show('Delete Success', ToastAndroid.CENTER)
+        return Toast.show({
+            type:"success",
+            text1:"success",
+            text2:"Delete Success 👌🏽",
+            visibilityTime:5000,
+        }) 
     }
     const showAlertFaile = () => {
-        return ToastAndroid.show('Delete Fail 👋', ToastAndroid.CENTER)
+        return Toast.show({
+            type:"success",
+            text1:"success",
+            text2:"Delete Fail 👌🏽",
+            visibilityTime:5000,
+        }) 
     }
     const FirstRoute = () => (
         <History {...{ colorBorder, showAlert, showAlertFaile, color_, color, color__, isDark: isDarkMode }}></History>

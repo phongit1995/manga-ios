@@ -19,6 +19,7 @@ import FocusAwareStatusBar from '../../components/FocusAwareStatusBar';
 import { RootState } from '../../redux/reducers'
 import { stores } from '../../../App'
 import FastImage from 'react-native-fast-image';
+import Toast from 'react-native-toast-message';
 export type RootRouteProps<RouteName extends keyof RootStackParamList> = RouteProp<
     RootStackParamList,
     RouteName
@@ -129,8 +130,18 @@ const ChapDowload = () => {
                 .then((results: any) => {
                     setdata([...results])
                 })
-            return ToastAndroid.show('Delete Success', ToastAndroid.CENTER)
-        }).catch((e) => ToastAndroid.show('Delete Fail', ToastAndroid.CENTER))
+            return Toast.show({
+                type:"success",
+                text1:"success",
+                text2:"Delete Success 👌🏽",
+                visibilityTime:5000,
+            })
+        }).catch((e) => Toast.show({
+            type:"success",
+            text1:"success",
+            text2:"Delete Fail 👌🏽",
+            visibilityTime:5000,
+        }) )
     }
     
     return (

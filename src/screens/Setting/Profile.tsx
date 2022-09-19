@@ -11,6 +11,7 @@ import { UploadFile } from './../../api/upload';
 import ApplovinService from './../../Applovin/Applovin';
 import Loading from '../../components/Loading';
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import Toast from 'react-native-toast-message';
 export default function Profile({ loading, setavatar, avatar, inforUser, isToggleBackground, color_, color___ }) {
     const navigation = useNavigation();
     const color__ = isToggleBackground ? '#fff' : '#EE3340'
@@ -27,7 +28,12 @@ export default function Profile({ loading, setavatar, avatar, inforUser, isToggl
                 UploadFile(image.path, image.mime).then(result => {
                     if (result.data.status === "success") {
                         setavatar(result.data.data)
-                        ToastAndroid.show('Update Success 👌🏼', ToastAndroid.SHORT)
+                        Toast.show({
+                            type:"success",
+                            text1:"success",
+                            text2:"Update Success 👌🏼 👌🏽",
+                            visibilityTime:5000,
+                        }) 
                         PostUpdateInforUser(result.data.data, inforUser.token).then((e) => {
                             if (e.data.status = "success") {
                                 return

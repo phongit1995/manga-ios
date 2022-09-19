@@ -13,7 +13,7 @@ export class ApplovinService {
     this.initializeInterstitialEventAds();
   }
   private numberShowAds: number = 5;
-  private numberCount: number = 3;
+  private numberCount: number = 4;
   private navigates: any;
   private types: any;
   private keys: any;
@@ -76,7 +76,7 @@ export class ApplovinService {
     this.keys = key;
     this.navigates = navi;
     // when add inapp
-    //if (stores.getState().FunctionReduce.isPremium) return this.navigation();
+    if (stores.getState().FunctionReduce.isPremium) return this.navigation();
     if (this.numberCount == this.numberShowAds - 1) {
       this.loadAds();
     }

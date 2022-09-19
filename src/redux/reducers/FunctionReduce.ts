@@ -2,7 +2,7 @@ import * as types from '../constants/FunctionConstants';
 const initialState = {
     isDarkMode: false,
     numberLight: 0,
-    isPremium: true,
+    isPremium: false,
     isTurn: 0,
     isTutorial: true
 };
@@ -67,6 +67,11 @@ const reducer = (state: FunctionReducePayload = initialState, action: FunctionRe
         }
         case types.PREMIUM_TYPE: {
             action = <SuccessAction<PremisumActionPayload>>action
+            console.log('PREMIUM_TYPE',action.payload.isPremium);
+            console.log({
+                ...state,
+                isPremium: action.payload.isPremium
+            })
             return {
                 ...state,
                 isPremium: action.payload.isPremium

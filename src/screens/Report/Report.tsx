@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { SCREEN_HEIGHT, } from './../../constants'
 import { postReport } from '../../api/report'
+import Toast from 'react-native-toast-message';
 type modalsProps = {
     modalVisible: boolean,
     setModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
@@ -18,12 +19,22 @@ type modalsProps = {
 const Report: FunctionComponent<modalsProps> = ({ modalVisible, setModalVisible, id }) => {
     const [reason, setreason] = React.useState<string>('')
     const OnPreshandlerReport = async () => {
-        if (reason === '') return ToastAndroid.show('Select the content of the report', ToastAndroid.SHORT)
+        if (reason === '') 
+        return Toast.show({
+            type:"error",
+            text1:"error",
+            text2:"Select the content of the report 👌",
+            visibilityTime:5000,
+        }) 
         try {
             const result = await postReport(id, reason)
             if (result.data.status === "success") {
-                ToastAndroid.show('Has submitted an error report 👌🏽', ToastAndroid.SHORT)
-
+                return Toast.show({
+                    type:"error",
+                    text1:"error",
+                    text2:"Has submitted an error report 👌🏽",
+                    visibilityTime:5000,
+                }) 
             }
             setModalVisible(false)
         } catch (error) {

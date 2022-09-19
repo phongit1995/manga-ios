@@ -22,6 +22,7 @@ export const iconDowload = require('../../../assets/image/cloud-download.png')
 import  ApplovinService  from './../../../Applovin/Applovin';
 import * as RNFS from 'react-native-fs';
 import FastImage from 'react-native-fast-image';
+import Toast from 'react-native-toast-message'
 type itemChapProps = {
     listChapRead: any,
     __id: string,
@@ -102,7 +103,12 @@ const Item: FunctionComponent<itemChapProps> = ({ color________, isPremium, coun
             return navigation.navigate(SCREEN.PERMIUM_SCREEN)
         }
         if (count != 1) {
-            return ToastAndroid.show('You can only download chapter one at a time', ToastAndroid.SHORT)
+            return Toast.show({
+                type:"error",
+                text1:"error",
+                text2:"You can only download chapter one at a time 👌",
+                visibilityTime:5000,
+            })
         } else {
             setCount(0)
             setloading(true)

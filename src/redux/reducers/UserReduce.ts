@@ -95,7 +95,6 @@ const reducer = (state: UserReducePayload = initialState, action: UserReduceActi
             return { user: {} }
         case types.LOGOUT_FAILURE:
             action = <ErrorAction>action
-            ToastAndroid.show(action.payload.message, ToastAndroid.SHORT)
             Toast.show({
                 type:"error",
                 text1:"Success",

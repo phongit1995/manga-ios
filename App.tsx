@@ -37,6 +37,7 @@ import {
   purchaseUpdatedListener,
   PurchaseError,
   initConnection,
+  getAvailablePurchases,
 } from 'react-native-iap';
 import * as RNIap from 'react-native-iap'
 import { dispatchPermium, dispatchNetWork } from './src/redux/action/FunctionAction'
@@ -77,8 +78,14 @@ const App = () => {
       
     }
     initConnection().catch((e) => console.log('error purchase',e))
-      .then(() => {
+      .then(async() => {
+        // getAvailablePurchases().then((purchasesBought)=>{
+        //   if(purchasesBought.length>0){
+        //     stores.dispatch(dispatchPermium(true))
+        //   }
+        // })
         RNIap.flushFailedPurchasesCachedAsPendingAndroid().catch((e) => {
+          console.log('flushFailedPurchasesCachedAsPendingAndroid',e)
           stores.dispatch(dispatchPermium(false))
         }).then(() => {
           purchaseUpdateSubscription = purchaseUpdatedListener(async (purchase: any) => {
@@ -143,7 +150,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={null} persistor={persistor}> 
         <View style={styles.container}>
           {
             modalVisible ? <CustomModal {...{ modalVisible, setModalVisible }} title="New Version" type={0}> Have new version . Please update to use </CustomModal> : null
