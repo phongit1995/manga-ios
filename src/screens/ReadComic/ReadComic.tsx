@@ -53,7 +53,8 @@ export default function ReadComic() {
     const scrollYFooter = new Animated.Value(0);
     const diffClamp = Animated.diffClamp(scrollY, 0, SCREEN_HEIGHT / 9.5)
     const diffClampFooter = Animated.diffClamp(scrollYFooter, 0, Math.round(SCREEN_HEIGHT / 15))
-    const [showTutorial, setShowTutorial] = React.useState<boolean>(isTutorial)
+    const [showTutorial, setShowTutorial] = React.useState<boolean>(isTutorial);
+    const [statusbar,setStatusbar] = React.useState<boolean>(true);
     const translateY = diffClamp.interpolate({
         inputRange: [0, SCREEN_HEIGHT / 9.5],
         outputRange: [0, -(SCREEN_HEIGHT / 9.5)]
@@ -110,13 +111,15 @@ export default function ReadComic() {
 
     const color_ = changeBackground__(isDarkMode)
     const color__ = changeBackground(isDarkMode)
-
+    React.useEffect(()=>{
+        setStatusbar(false);
+    },[])
     return (
         <>
 
             <FocusAwareStatusBar
                 barStyle="light-content"
-                //hidden={false}
+                hidden={statusbar}
                 translucent={true}
                 backgroundColor='transparent'
             />
