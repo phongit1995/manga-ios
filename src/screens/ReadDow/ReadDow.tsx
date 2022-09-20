@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, StyleSheet, Dimensions, Animated } from 'react-native';
 const { height, width } = Dimensions.get("window");
 import { useRoute, RouteProp } from '@react-navigation/native';
@@ -8,6 +8,7 @@ import FocusAwareStatusBar from '../../components/FocusAwareStatusBar';
 import Footer from './Footer';
 import Modals from '../ReadComic/Modals';
 import ListImage from './ListImage';
+import ListImageScale from './../ReadComic/ListImage';
 import { RootState } from '../../redux/reducers'
 export type RootStackParamList = {
     ReadDow: { item__: any };
@@ -29,6 +30,8 @@ export default function ReadDow() {
     const scrollYFooter = new Animated.Value(0);
     const state = useSelector((state: RootState) => state)
     const { isDarkMode, isNetWork, isTurn } = state.FunctionReduce;
+    const headerRef = useRef(null);
+    const footerRef = useRef(null);
     const diffClamp = Animated.diffClamp(scrollY, 0, height / 9.5)
     const translateY = diffClamp.interpolate({
         inputRange: [0, height / 9.5],
@@ -39,6 +42,7 @@ export default function ReadDow() {
         inputRange: [0, Math.round(height / 13)],
         outputRange: [0, Math.round(height / 13)]
     })
+    const [headerStatus,setHeaderStatus]= useState(true);
     const router = useRoute<RootRouteProps<'ReadDow'>>();
     const { item__ } = router.params
 
@@ -49,17 +53,19 @@ export default function ReadDow() {
     const color = changeBackground_(isDarkMode)
     const color_ = changeBackground__(isDarkMode)
     const color__ = changeBackground(isDarkMode)
-
+    useEffect(()=>{
+        setHeaderStatus(false);
+    },[])
     return (
         <View style={{ backgroundColor: color, flex: 1 }}>
             <FocusAwareStatusBar
                 barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-                hidden={false}
+                hidden={headerStatus}
                 translucent={true}
                 backgroundColor='transparent'
             />
-            <Header {...{ translateY, name: item__.nameChap }}></Header>
-            <ListImage {...{ isDarkMode,imagesList: item__.data, scrollY, scrollYFooter, isTurn, color_ }}></ListImage>
+            <Header ref={headerRef} {...{ translateY, name: item__.nameChap }}></Header>
+            <ListImage {...{ isDarkMode,imagesList: item__.data, scrollY, scrollYFooter, isTurn, color_ }}/>
             <Footer {...{ translateYFooter, _setModalVisible }}></Footer>
             <Modals {...{ color_, color__, isTurn, modalVisible, _setModalVisible }}></Modals>
         </View>

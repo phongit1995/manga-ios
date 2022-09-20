@@ -99,18 +99,6 @@ const Item: FunctionComponent<itemChapProps> = ({ color________, isPremium, coun
         }
     }, [listChapDown])
     const onHandlerDownload = async (i: string, e: string) => {
-        if (!isPremium) {
-            return navigation.navigate(SCREEN.PERMIUM_SCREEN)
-        }
-        if (count != 1) {
-            return Toast.show({
-                type:"error",
-                text1:"error",
-                text2:"You can only download chapter one at a time 👌",
-                visibilityTime:5000,
-            })
-        } else {
-            setCount(0)
             setloading(true)
             let obj = {
                 idManga: _item._id,
@@ -167,7 +155,6 @@ const Item: FunctionComponent<itemChapProps> = ({ color________, isPremium, coun
                     })
                     .catch(e => console.log(e))
             }
-        }
 
     }
 

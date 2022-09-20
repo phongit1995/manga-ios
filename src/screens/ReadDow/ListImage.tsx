@@ -3,6 +3,7 @@ import isEqual from 'react-fast-compare';
 import { View, StyleSheet, Dimensions, FlatList } from 'react-native';
 const { height, width } = Dimensions.get("window");
 import ImageFullWith from './ImageFullWith'
+import ImageFullWithScare from './../ReadComic/ImageFullWith';
 import { SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_WIDTH_No } from '../../constants';
 type listImageProps = {
     isTurn: number,
@@ -31,7 +32,7 @@ const ListImage: FunctionComponent<listImageProps> = ({ isDarkMode, isTurn, imag
         if (isTurn === 0) setCOunt(e => e + 1)
     };
 
-    let renderItem = ({ item, index }) => <ImageFullWith {...{isDarkMode, count, index, isTurn, url: item, _goToNextPage }} />
+    let renderItem = ({ item, index }) => <ImageFullWithScare {...{isDarkMode, count, index, isTurn, url: item, _goToNextPage , scrollY , scrollYFooter }} />
     let keyExtractor = (_, index: number) => {
         return (index).toString()
     }
