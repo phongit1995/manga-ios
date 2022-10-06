@@ -12,7 +12,6 @@ const ImageFullWith = React.memo(({
     scrollY,
     scrollYFooter,
  }: any): any => {
-     console.log(url)
     const [heightImage, setHeightImage] = React.useState<number>(7000);
     const [indicator, Setindicator] = React.useState<boolean>(true);
     const scaleValue = useRef(1);

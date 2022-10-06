@@ -14,10 +14,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import FastImage from 'react-native-fast-image';
 const ItemDownload = ({ isDark, deleteComic, item, color, color__ }: any) => {
     const _item = JSON.parse(item.itemManga)
-    const navigation = useNavigation();
+    const navigation = useNavigation<any>();
     const goToDetialComic = () => {
+        navigation.navigate(SCREEN.DOWNLOAD_CHAP_SCREEN, { idManga: item.idManga, nameChap: _item.name, numberChap: item.numberChap },null)
 
-        ApplovinService.showAdsFull(SCREEN.DOWNLOAD_CHAP_SCREEN, { idManga: item.idManga, nameChap: _item.name, numberChap: item.numberChap },null)
+        // ApplovinService.showAdsFull(SCREEN.DOWNLOAD_CHAP_SCREEN, { idManga: item.idManga, nameChap: _item.name, numberChap: item.numberChap },null)
     }
 
     const showCategory = React.useCallback(() => {

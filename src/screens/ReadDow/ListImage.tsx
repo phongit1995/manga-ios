@@ -1,93 +1,151 @@
 import React, { FunctionComponent } from 'react';
 import isEqual from 'react-fast-compare';
-import { View, StyleSheet, Dimensions, FlatList } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 const { height, width } = Dimensions.get("window");
 import ImageFullWith from './ImageFullWith'
 import ImageFullWithScare from './../ReadComic/ImageFullWith';
-import { SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_WIDTH_No } from '../../constants';
+import { SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_WIDTH_No, STATUS_BAR_HEIGHT, TYPE_READ } from '../../constants';
+import { LongPressGestureHandler, ScrollView, State, TapGestureHandler, FlatList } from 'react-native-gesture-handler';
+
 type listImageProps = {
     isTurn: number,
     imagesList: string[],
     scrollY: any,
     scrollYFooter: any,
+    headerRef: any,
+    footerRef: any
 }
 
-const ListImage: FunctionComponent<listImageProps> = ({ isDarkMode, isTurn, imagesList, scrollY, scrollYFooter }: any) => {
+const ListImage: FunctionComponent<listImageProps> = ({
+    isDarkMode,
+    isTurn,
+    imagesList,
+    scrollY,
+    scrollYFooter,
+    headerRef,
+    footerRef
+}: any) => {
     let carousel = React.useRef<any>(null);
-    let [count, setCOunt] = React.useState<number>(1)
+
+    let [count, setCount] = React.useState<number>(1)
+    let [countScroll, setCountScroll] = React.useState<number>(1)
 
     React.useEffect(() => {
         return () => {
-            setCOunt(1)
+            setCount(1)
         }
     }, [isTurn])
-    let _goToNextPage = (e) => {
 
-        if (carousel.current) {
-            carousel.current.scrollToOffset({
-                offset: (SCREEN_WIDTH_No) * (e + 1),
-                animated: true,
-            });
+    const renderItem = React.useCallback(({ item, index }) => {
+        return <ImageFullWithScare {...{ isDarkMode, index, isTurn, url: item, scrollY, scrollYFooter }} />
+    }, [isDarkMode, scrollY, scrollYFooter])
+
+    const keyExtractor = React.useCallback((item, index: number) => `${index} ${item}`, [])
+
+    React.useLayoutEffect(() => {
+        if (imagesList?.length > 0) {
+            headerRef.current?.handleChangePage({
+                page: 1,
+                totalPage: imagesList?.length != 0 ? JSON.parse(imagesList)?.length : 1,
+            })
         }
-        if (isTurn === 0) setCOunt(e => e + 1)
-    };
+    }, [imagesList])
 
-    let renderItem = ({ item, index }) => <ImageFullWithScare {...{isDarkMode, count, index, isTurn, url: item, _goToNextPage , scrollY , scrollYFooter }} />
-    let keyExtractor = (_, index: number) => {
-        return (index).toString()
-    }
-    const getItemLayout = isTurn === 0 ? undefined : (_, index: number) => {
-        return ({
-            length: SCREEN_WIDTH_No,
-            offset: (SCREEN_WIDTH_No) * (index + 1),
-            index: index
-        })
+    const _onViewableItemsChanged = React.useCallback(({ viewableItems, changed }) => {
+        if (viewableItems && changed) {
+            let indexView = viewableItems?.length - 1;
+            if (viewableItems?.length > 0) {
+                headerRef?.current?.handleChangePage({
+                    page: viewableItems?.[indexView]?.index + 1,
+                    totalPage: imagesList?.length != 0 ? JSON.parse(imagesList)?.length : 1
+                })
+            }
+        }
+    }, [imagesList]);
+
+    const _onSingleTapVertical = event => {
+        //handle tap action scroll to vetical
+        if (event.nativeEvent.state === State.ACTIVE && isTurn === TYPE_READ.VERTICAL) {
+            if (event.nativeEvent.y > SCREEN_HEIGHT / 2) {
+                const offset = (SCREEN_HEIGHT / 2) * (countScroll != count ? ++countScroll : ++count)
+                carousel.current.scrollToOffset({ offset, animated: true });
+                if (countScroll != count) {
+                    setCount(countScroll)
+                }
+            } else {
+                scrollY.setValue(-Math.round(height / 9.5));
+                scrollYFooter.setValue(-Math.round(height / 13))
+            }
+        }
+
+        //handle tap action scroll to horizontal
+        if (event.nativeEvent.state === State.ACTIVE && isTurn === TYPE_READ.HORIZONTAL) {
+            if (event.nativeEvent.y < SCREEN_HEIGHT / 2) {
+                scrollY.setValue(-Math.round(height / 9.5));
+                scrollYFooter.setValue(-Math.round(height / 13))
+            } else {
+                let getIndex = count > imagesList?.length ? imagesList?.length - 1 : count++
+                carousel.current.scrollToIndex({ index: getIndex, animated: true });
+            }
+        }
     }
 
     return (
-        <View style={[styles.content, { backgroundColor: isDarkMode  ? '#111217' : '#FFF'}]}>
+        <View style={[styles.content, { backgroundColor: isDarkMode ? '#111217' : '#FFF' }]}>
             <View style={{ flex: 1 }}>
-                <FlatList
-                    showsVerticalScrollIndicator={false}
-                    ref={ref => {
-                        carousel.current = ref;
-                    }}
-                    contentContainerStyle={{
-                        marginTop: isTurn === 0 ? (SCREEN_HEIGHT / 12) + 12 : 0,
-                        paddingBottom: isTurn === 0 ? (SCREEN_HEIGHT / 15) : 0
-                    }}
-                    data={imagesList.length != 0 ? JSON.parse(imagesList) : []}
-                    keyExtractor={keyExtractor}
-                    nestedScrollEnabled={true}
-                    renderItem={renderItem}
-                    horizontal={isTurn === 0 ? false : true}
-                    decelerationRate={isTurn === 0 ? "normal" : 'fast'}
-                    showsHorizontalScrollIndicator={false}
-                    scrollEventThrottle={1}
-                    snapToInterval={isTurn === 0 ? undefined : SCREEN_WIDTH_No}
-                    getItemLayout={getItemLayout}
-                    onMomentumScrollEnd={(e) => {
-                        if (isTurn === 0) {
-                            let newIndex = Math.round(
-                                e.nativeEvent.contentOffset.y / (SCREEN_HEIGHT / 2)
-                            );
-                            setCOunt(newIndex + 1)
-                        }
-                    }}
-                    onScroll={(e) => {
-                        if (isTurn === 0) {
-                            if (e.nativeEvent.contentOffset.y > 0) {
-                                scrollY.setValue(Math.round(e.nativeEvent.contentOffset.y));
-                                scrollYFooter.setValue(Math.round(e.nativeEvent.contentOffset.y))
+                <TapGestureHandler
+                    onHandlerStateChange={_onSingleTapVertical}
+                >
+                    <FlatList
+                        showsVerticalScrollIndicator={false}
+                        ref={ref => {
+                            carousel.current = ref;
+                        }}
+                        contentContainerStyle={{
+                            zIndex: 99999,
+                            elevation: 10000,
+                            paddingTop: STATUS_BAR_HEIGHT
+                        }}
+                        data={imagesList.length != 0 ? JSON.parse(imagesList) : []}
+                        keyExtractor={keyExtractor}
+                        nestedScrollEnabled={true}
+                        renderItem={renderItem}
+                        horizontal={isTurn === TYPE_READ.HORIZONTAL}
+                        pagingEnabled={isTurn === TYPE_READ.HORIZONTAL}
+                        decelerationRate={isTurn === 0 ? "normal" : 'fast'}
+                        showsHorizontalScrollIndicator={false}
+                        scrollEventThrottle={1}
+                        snapToInterval={isTurn === 0 ? undefined : SCREEN_WIDTH_No}
+                        onViewableItemsChanged={_onViewableItemsChanged}
+                        onMomentumScrollEnd={(e) => {
+                            if (isTurn === 0) {
+                                let newIndex = Math.round(e.nativeEvent.contentOffset.y / (SCREEN_HEIGHT / 2));
+                                setCountScroll(newIndex)
                             }
-                        } else {
-                            if (e.nativeEvent.contentOffset.x > 0) {
-                                scrollY.setValue(Math.round(e.nativeEvent.contentOffset.x));
-                                scrollYFooter.setValue(Math.round(e.nativeEvent.contentOffset.x))
+                        }}
+                        onScrollToIndexFailed={(error) => {
+                            carousel.current?.scrollToOffset({ offset: error.averageItemLength * error.index, animated: true });
+                            setTimeout(() => {
+                                if (imagesList?.length !== 0 && carousel.current !== null) {
+                                    carousel.current.scrollToIndex({ index: error.index, animated: true });
+                                }
+                            }, 500);
+                        }}
+                        onScroll={(e) => {
+                            if (isTurn === 0) {
+                                if (e.nativeEvent.contentOffset.y > 0) {
+                                    scrollY.setValue(Math.round(e.nativeEvent.contentOffset.y));
+                                    scrollYFooter.setValue(Math.round(e.nativeEvent.contentOffset.y))
+                                }
+                            } else {
+                                if (e.nativeEvent.contentOffset.x > 0) {
+                                    scrollY.setValue(Math.round(e.nativeEvent.contentOffset.x));
+                                    scrollYFooter.setValue(Math.round(e.nativeEvent.contentOffset.x))
+                                }
                             }
-                        }
-                    }}
-                />
+                        }}
+                    />
+                </TapGestureHandler>
             </View>
         </View>
     );
