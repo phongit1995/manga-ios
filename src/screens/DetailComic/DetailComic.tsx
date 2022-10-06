@@ -3,7 +3,7 @@ import { View, StyleSheet, ScrollView, SafeAreaView, Animated } from 'react-nati
 import { useRoute, RouteProp, useFocusEffect } from '@react-navigation/native';
 import isEqual from 'react-fast-compare';
 import { useDispatch, useSelector } from 'react-redux'
-// import LottieView from 'lottie-react-native';
+import LottieView from 'lottie-react-native';
 import Header from './Header';
 import InformationComic from './InformationComic'
 import DescriptComic from './DescriptComic'
@@ -167,7 +167,7 @@ const DetailComic: FunctionComponent = () => {
                 {
                     isactive ? (
                         <View style={styles.love}>
-                            {/* <LottieView
+                            <LottieView
                                 source={iconLove}
                                 autoPlay={true}
                                 loop={false}
@@ -176,7 +176,7 @@ const DetailComic: FunctionComponent = () => {
                                 onAnimationFinish={() => {
                                     setisactive(false)
                                 }}
-                            /> */}
+                            />
                         </View>
                     ) : null
                 }
@@ -234,7 +234,7 @@ const DetailComic: FunctionComponent = () => {
                     </View>
                 )
             }
-            {/* {showAimatedFollow()} */}
+            {showAimatedFollow()}
 
             <Report {...{ modalVisible, setModalVisible, id }}></Report>
 

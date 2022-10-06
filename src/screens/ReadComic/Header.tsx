@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useImperativeHandle, useState } from 'react';
+import React, {FunctionComponent, useImperativeHandle, useState} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, Image } from 'react-native';
 import { STATUS_BAR_HEIGHT, SCREEN_HEIGHT } from '../../constants'
 import { useNavigation } from '@react-navigation/native';
@@ -8,11 +8,10 @@ import isEqual from 'react-fast-compare';
 type headerProps = {
     translateY: any,
     name: string | null,
-    setShowTutorial: any,
-    isDownload: boolean
+    setShowTutorial: any
 }
 
-const Header: FunctionComponent<headerProps> = React.forwardRef(({ translateY, name, setShowTutorial, isDownload = false }, ref) => {
+const Header: FunctionComponent<headerProps> = React.forwardRef(({ translateY, name, setShowTutorial }, ref) => {
     const navigation = useNavigation<any>();
     const [page, setPage] = useState({
         page: '--',
@@ -24,8 +23,7 @@ const Header: FunctionComponent<headerProps> = React.forwardRef(({ translateY, n
         handleChangePage,
         handleChangeShow
     }), [])
-
-    function handleChangePage(_page) {
+    function handleChangePage(_page){
         setPage(_page);
     }
 
@@ -33,9 +31,8 @@ const Header: FunctionComponent<headerProps> = React.forwardRef(({ translateY, n
         setAlwaysShow(status === undefined ? true : status);
     }
     const onHandlerShow = () => {
-        if (!isDownload) {
-            setShowTutorial(true)
-        }
+        setShowTutorial(true)
+
     }
     return (
 
@@ -54,15 +51,11 @@ const Header: FunctionComponent<headerProps> = React.forwardRef(({ translateY, n
 
             </TouchableOpacity>
             <Text style={styles.name} numberOfLines={1}>{name}</Text>
-            {
-                !isDownload && (
-                    <TouchableOpacity
-                        onPress={onHandlerShow}
-                    >
-                        <Image source={iconquestion} style={styles.imgIcon}></Image>
-                    </TouchableOpacity>
-                )
-            }
+            <TouchableOpacity
+                onPress={onHandlerShow}
+            >
+                <Image source={iconquestion} style={styles.imgIcon}></Image>
+            </TouchableOpacity>
             <View style={styles.page}>
                 <Text style={styles.pageNow}>{page.page}/{page.totalPage}</Text>
             </View>

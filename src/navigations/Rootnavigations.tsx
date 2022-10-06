@@ -23,7 +23,6 @@ import SignUp from '../screens/Auth/SignUp';
 import Comment from '../screens/Comment';
 import RepCmt from '../screens/Comment/RepCmt';
 import Premium from '../screens/Premium';
-import SetupNotification from '../notification/SetupNotification';
 
 const navigationOptions: StackNavigationOptions = {
     headerShown: false,
@@ -41,8 +40,7 @@ const SlideFromRightIOS: StackNavigationOptions = {
 export default () => {
     const routeNameRef = React.useRef<any>();
     return (
-        <NavigationContainer
-            ref={navigationRef}
+        <NavigationContainer ref={navigationRef}
             onReady={() => routeNameRef.current = navigationRef.current?.getCurrentRoute()?.name}
             onStateChange={() => {
                 const previousRouteName = routeNameRef.current;
@@ -53,9 +51,8 @@ export default () => {
                 routeNameRef.current = currentRouteName;
             }}
         >
-            <SetupNotification />
-            <Stack.Navigator screenOptions={navigationOptions} >
-                <Stack.Screen name={screen.MAIN_TAB} component={AuthStack} />
+            <Stack.Navigator screenOptions={navigationOptions} initialRouteName={screen.MAIN_HOME_SCREEN} >
+                <Stack.Screen name={screen.MAIN_HOME_SCREEN} component={AuthStack} />
                 <Stack.Screen options={StyleSheet.flatten(SlideFromRightIOS)} name={screen.SEARCH_SCREEN} component={SearchComic} />
                 <Stack.Screen options={StyleSheet.flatten(SlideFromRightIOS)} name={screen.SHOWALL_LIST_SCREEN} component={ShowAll} />
                 <Stack.Screen options={StyleSheet.flatten(SlideFromRightIOS)} name={screen.DETIAL_COMIC_SCREEN} component={DetailComic} />
@@ -71,6 +68,7 @@ export default () => {
                 <Stack.Screen options={StyleSheet.flatten(SlideFromRightIOS)} name={screen.COMMENT_SCREEN} component={Comment} />
                 <Stack.Screen options={StyleSheet.flatten(SlideFromRightIOS)} name={screen.REP_COMMENT_SCREEN} component={RepCmt} />
                 <Stack.Screen options={StyleSheet.flatten(SlideFromRightIOS)} name={screen.PERMIUM_SCREEN} component={Premium} />
+
             </Stack.Navigator>
         </NavigationContainer>
     )
