@@ -40,7 +40,7 @@ const ChapDowload = () => {
     const [page, setPage] = React.useState<number>(1);
     const [footerLoading, setFooterLoading] = React.useState<boolean>(false);
     const [statusLoadMore, setstatusLoadMore] = React.useState<boolean>(false);
- 
+
     React.useEffect(() => {
         (() => {
             try {
@@ -75,7 +75,7 @@ const ChapDowload = () => {
         return !statusLoadMore ? <Loading></Loading> : null
     }
     const Item = ({ item }) => {
-        const navigation = useNavigation();
+        const navigation = useNavigation<any>();
         const deleteChap = () => {
             setModalVisible(true)
             setId(item.idchap)
@@ -96,7 +96,8 @@ const ChapDowload = () => {
                 }}
                     activeOpacity={0.7}
                     onPress={() => {
-                        ApplovinService.showAdsFull(SCREEN.READ_DOWNLOAD_CHAP_SCREEN, { item__: item },null)
+                        navigation.navigate(SCREEN.READ_DOWNLOAD_CHAP_SCREEN, { item__: item }, null)
+                        // ApplovinService.showAdsFull(SCREEN.READ_DOWNLOAD_CHAP_SCREEN, { item__: item },null)
                     }}
                 >
                     <View style={{ width: '100%' }}>
@@ -131,19 +132,19 @@ const ChapDowload = () => {
                     setdata([...results])
                 })
             return Toast.show({
-                type:"success",
-                text1:"success",
-                text2:"Delete Success 👌🏽",
-                visibilityTime:5000,
+                type: "success",
+                text1: "success",
+                text2: "Delete Success 👌🏽",
+                visibilityTime: 5000,
             })
         }).catch((e) => Toast.show({
-            type:"success",
-            text1:"success",
-            text2:"Delete Fail 👌🏽",
-            visibilityTime:5000,
-        }) )
+            type: "success",
+            text1: "success",
+            text2: "Delete Fail 👌🏽",
+            visibilityTime: 5000,
+        }))
     }
-    
+
     return (
         <View style={{
             backgroundColor: color_,
@@ -154,7 +155,7 @@ const ChapDowload = () => {
             <View style={styles.numberChap}>
                 <Text style={{ fontFamily: 'Nunito-Bold', }}>Dowload <Text style={{ color: '#ff4545' }}>{data.length}</Text>/{numberChap} Chapter</Text>
             </View>
-            { loading ? <Loading></Loading> :
+            {loading ? <Loading></Loading> :
                 data.length == 0 ?
                     <View style={{ justifyContent: "center", alignItems: 'center', flex: 1 }}>
                         <FastImage

@@ -6,7 +6,7 @@ import {
     Text
 } from 'react-native';
 export const iconload = require('../../assets/image/lf30_editor_tjxfaqaj.json');
-import LottieView from 'lottie-react-native';
+// import LottieView from 'lottie-react-native';
 import { SCREEN_HEIGHT, SCREEN_WIDTH_No } from '../../constants';
 
 const LoadingImage: FunctionComponent<any> = () => {
@@ -28,14 +28,14 @@ const LoadingImage: FunctionComponent<any> = () => {
                     please wait a moment.
             </Text>
             </View>
-            <LottieView
+            {/* <LottieView
                 source={iconload}
                 autoPlay
                 loop={true}
                 style={styles.tinyiconLeft}
                 speed={1.5}
 
-            />
+            /> */}
         </View>
     );
 };

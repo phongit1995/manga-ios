@@ -114,6 +114,7 @@ export default function ReadComic() {
     React.useEffect(()=>{
         setStatusbar(false);
     },[])
+    
     return (
         <>
 
