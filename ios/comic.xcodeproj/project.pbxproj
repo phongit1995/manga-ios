@@ -17,16 +17,18 @@
 		2DCD954D1E0B4F2C00145EB5 /* comicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* comicTests.m */; };
 		3D9CB5B73221467FA381A24C /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F63D3832B1D248489A61F872 /* Nunito-Bold.ttf */; };
 		4C0E4DB59BC24E5EECECAB2A /* libPods-comic-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C5432E0022A97B52C450D3 /* libPods-comic-tvOS.a */; };
+		52370FDE28EE4FFC00486248 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52370FDD28EE4FFC00486248 /* NotificationService.swift */; };
+		52370FE228EE4FFC00486248 /* ImageNotification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 52370FDB28EE4FFC00486248 /* ImageNotification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5277AB9928EDC14D002E4589 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5277AB9828EDC14D002E4589 /* GoogleService-Info.plist */; };
 		63DBE0BD33F8F5A454FDC168 /* libPods-comic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C57F575AE6CAEC06D82A373E /* libPods-comic.a */; };
 		6FAE62B9C80D4E5FA9C9B6AD /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3C0E85F8958945FA95360D28 /* Montserrat-Light.otf */; };
 		6FE1F1E5688E4A43A8147613 /* libPods-comic-comicTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0386E7C6A273507CE013972A /* libPods-comic-comicTests.a */; };
 		78912E2E256746A6BCD23D55 /* Brygada1918-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EBA363731C94D95A86F2416 /* Brygada1918-Medium.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8DC231AD0891986A1199BC66 /* libPods-comic-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0E8386039CCEF9696A19E0 /* libPods-comic-tvOSTests.a */; };
+		9F32FED18E632170B0B9967F /* AppLovinQualityService.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B5FFEA27F5D319EE8E2573 /* AppLovinQualityService.xcframework */; };
 		ADE8053DA6F74E74975E0A05 /* Averta-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C0C689C04C3E491FBF035FF4 /* Averta-Regular.otf */; };
-		B9470DDEA4F5E91E58DA5C83 /* AppLovinQualityService.xcframework in AppLovinQualityService Embed Framework */ = {isa = PBXBuildFile; fileRef = 41C176DCA49173CB70901F46 /* AppLovinQualityService.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C7B98F97F40B0EECD2BCF541 /* AppLovinQualityService.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C176DCA49173CB70901F46 /* AppLovinQualityService.xcframework */; };
-		FA20781828805B0F0059DD3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA20781728805B0E0059DD3B /* GoogleService-Info.plist */; };
+		D38FC87C8D79126391230D0E /* AppLovinQualityService.xcframework in AppLovinQualityService Embed Framework */ = {isa = PBXBuildFile; fileRef = B4B5FFEA27F5D319EE8E2573 /* AppLovinQualityService.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAAA63C82883B6AB00591F48 /* Averta-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAAA63C62883B6AB00591F48 /* Averta-Bold.otf */; };
 		FAAA63C92883B6AB00591F48 /* Averta.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAAA63C72883B6AB00591F48 /* Averta.otf */; };
 		FAAA63CB2883BE2600591F48 /* www in Resources */ = {isa = PBXBuildFile; fileRef = FAAA63CA2883BE2600591F48 /* www */; };
@@ -47,16 +49,34 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "comic-tvOS";
 		};
+		52370FE028EE4FFC00486248 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52370FDA28EE4FFC00486248;
+			remoteInfo = ImageNotification;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		66E73A8993CA5DEC99C2CCD2 /* AppLovinQualityService Embed Framework */ = {
+		52370FE328EE4FFC00486248 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				52370FE228EE4FFC00486248 /* ImageNotification.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9872BC88BA4DE9069ECF1FB3 /* AppLovinQualityService Embed Framework */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B9470DDEA4F5E91E58DA5C83 /* AppLovinQualityService.xcframework in AppLovinQualityService Embed Framework */,
+				D38FC87C8D79126391230D0E /* AppLovinQualityService.xcframework in AppLovinQualityService Embed Framework */,
 			);
 			name = "AppLovinQualityService Embed Framework";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,12 +100,15 @@
 		2D02E47B1E0B4A5D006451C7 /* comic-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "comic-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* comic-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "comic-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0E85F8958945FA95360D28 /* Montserrat-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Light.otf"; path = "../assets/fonts/Montserrat-Light.otf"; sourceTree = "<group>"; };
-		41C176DCA49173CB70901F46 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		463A493A068241EEB2F33B29 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		489DFD28E96C4EEDA67A144F /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		4D823D899B25E627C607986B /* Pods-comic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comic.release.xcconfig"; path = "Target Support Files/Pods-comic/Pods-comic.release.xcconfig"; sourceTree = "<group>"; };
 		508FB128664D4F83AB93329F /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		52370FDB28EE4FFC00486248 /* ImageNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ImageNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		52370FDD28EE4FFC00486248 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		52370FDF28EE4FFC00486248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		525F227752E2796E59D2A9CC /* Pods-comic-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comic-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-comic-tvOSTests/Pods-comic-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		5277AB9828EDC14D002E4589 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57B5D1FA633A437A9DEAAC60 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		5CFCEFE80CA9B104E07C638E /* Pods-comic-comicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comic-comicTests.debug.xcconfig"; path = "Target Support Files/Pods-comic-comicTests/Pods-comic-comicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F0E8386039CCEF9696A19E0 /* libPods-comic-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-comic-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +122,7 @@
 		91ABDB8A8A4A482D957C2C5A /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		A01976A459314983A7E2A106 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		AF2E68783A92466484DB8256 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		B4B5FFEA27F5D319EE8E2573 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		C0C689C04C3E491FBF035FF4 /* Averta-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Averta-Regular.otf"; path = "../assets/fonts/Averta-Regular.otf"; sourceTree = "<group>"; };
 		C30563E032E7437BE97D95B9 /* Pods-comic-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comic-tvOS.release.xcconfig"; path = "Target Support Files/Pods-comic-tvOS/Pods-comic-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		C57F575AE6CAEC06D82A373E /* libPods-comic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-comic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +135,6 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F0622F4003BF41C98260424D /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		F63D3832B1D248489A61F872 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Nunito-Bold.ttf"; path = "../assets/fonts/Nunito-Bold.ttf"; sourceTree = "<group>"; };
-		FA20781728805B0E0059DD3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAAA63C62883B6AB00591F48 /* Averta-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Averta-Bold.otf"; path = "../assets/fonts/Averta-Bold.otf"; sourceTree = "<group>"; };
 		FAAA63C72883B6AB00591F48 /* Averta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Averta.otf; path = ../assets/fonts/Averta.otf; sourceTree = "<group>"; };
 		FAAA63CA2883BE2600591F48 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../android/app/src/main/assets/www; sourceTree = "<group>"; };
@@ -131,7 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7B98F97F40B0EECD2BCF541 /* AppLovinQualityService.xcframework in Frameworks */,
+				9F32FED18E632170B0B9967F /* AppLovinQualityService.xcframework in Frameworks */,
 				63DBE0BD33F8F5A454FDC168 /* libPods-comic.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +172,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC231AD0891986A1199BC66 /* libPods-comic-tvOSTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52370FD828EE4FFC00486248 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,9 +205,9 @@
 		13B07FAE1A68108700A75B9A /* comic */ = {
 			isa = PBXGroup;
 			children = (
+				5277AB9828EDC14D002E4589 /* GoogleService-Info.plist */,
 				FAAA63CC2884110100591F48 /* comic.entitlements */,
 				FAAA63CA2883BE2600591F48 /* www */,
-				FA20781728805B0E0059DD3B /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -199,6 +229,15 @@
 				5F0E8386039CCEF9696A19E0 /* libPods-comic-tvOSTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52370FDC28EE4FFC00486248 /* ImageNotification */ = {
+			isa = PBXGroup;
+			children = (
+				52370FDD28EE4FFC00486248 /* NotificationService.swift */,
+				52370FDF28EE4FFC00486248 /* Info.plist */,
+			);
+			path = ImageNotification;
 			sourceTree = "<group>";
 		};
 		6E571C557DE33B6FBF5D3812 /* Pods */ = {
@@ -229,11 +268,12 @@
 				13B07FAE1A68108700A75B9A /* comic */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* comicTests */,
+				52370FDC28EE4FFC00486248 /* ImageNotification */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				6E571C557DE33B6FBF5D3812 /* Pods */,
 				A7502476C9CE4BAE94D25E56 /* Resources */,
-				A8C9EF4F8B17A616740BE325 /* AppLovinQualityService */,
+				FDD2D1F3483A1523A52DD609 /* AppLovinQualityService */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -247,6 +287,7 @@
 				00E356EE1AD99517003FC87E /* comicTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* comic-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* comic-tvOSTests.xctest */,
+				52370FDB28EE4FFC00486248 /* ImageNotification.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,10 +321,10 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		A8C9EF4F8B17A616740BE325 /* AppLovinQualityService */ = {
+		FDD2D1F3483A1523A52DD609 /* AppLovinQualityService */ = {
 			isa = PBXGroup;
 			children = (
-				41C176DCA49173CB70901F46 /* AppLovinQualityService.xcframework */,
+				B4B5FFEA27F5D319EE8E2573 /* AppLovinQualityService.xcframework */,
 			);
 			name = AppLovinQualityService;
 			sourceTree = "<group>";
@@ -316,7 +357,7 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "comic" */;
 			buildPhases = (
 				7DC96B26A7960F4A7F13FD3B /* [CP] Check Pods Manifest.lock */,
-				175DD53F2F4863EE11B5FB1D /* AppLovinQualityService Updater */,
+				4249735D00155158F0670E18 /* AppLovinQualityService Updater */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -324,12 +365,14 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				E0B7D734C0E6EE0D90FAA4DF /* [CP] Copy Pods Resources */,
 				FA58408E4AB47AE503076B2E /* [CP-User] [RNFB] Core Configuration */,
-				66E73A8993CA5DEC99C2CCD2 /* AppLovinQualityService Embed Framework */,
-				665F4B73CA6B985B0B1FA35B /* AppLovinQualityService */,
+				9872BC88BA4DE9069ECF1FB3 /* AppLovinQualityService Embed Framework */,
+				D2931B8FA207D52445CC7730 /* AppLovinQualityService */,
+				52370FE328EE4FFC00486248 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				52370FE128EE4FFC00486248 /* PBXTargetDependency */,
 			);
 			name = comic;
 			productName = comic;
@@ -375,12 +418,30 @@
 			productReference = 2D02E4901E0B4A5D006451C7 /* comic-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		52370FDA28EE4FFC00486248 /* ImageNotification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52370FE628EE4FFC00486248 /* Build configuration list for PBXNativeTarget "ImageNotification" */;
+			buildPhases = (
+				52370FD728EE4FFC00486248 /* Sources */,
+				52370FD828EE4FFC00486248 /* Frameworks */,
+				52370FD928EE4FFC00486248 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageNotification;
+			productName = ImageNotification;
+			productReference = 52370FDB28EE4FFC00486248 /* ImageNotification.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -388,9 +449,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 4YMZR83M85;
 						LastSwiftMigration = 1120;
-						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -400,6 +459,9 @@
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
+					};
+					52370FDA28EE4FFC00486248 = {
+						CreatedOnToolsVersion = 13.0;
 					};
 				};
 			};
@@ -420,6 +482,7 @@
 				00E356ED1AD99517003FC87E /* comicTests */,
 				2D02E47A1E0B4A5D006451C7 /* comic-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* comic-tvOSTests */,
+				52370FDA28EE4FFC00486248 /* ImageNotification */,
 			);
 		};
 /* End PBXProject section */
@@ -443,7 +506,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3D9CB5B73221467FA381A24C /* Nunito-Bold.ttf in Resources */,
 				6FAE62B9C80D4E5FA9C9B6AD /* Montserrat-Light.otf in Resources */,
-				FA20781828805B0F0059DD3B /* GoogleService-Info.plist in Resources */,
+				5277AB9928EDC14D002E4589 /* GoogleService-Info.plist in Resources */,
 				ADE8053DA6F74E74975E0A05 /* Averta-Regular.otf in Resources */,
 				78912E2E256746A6BCD23D55 /* Brygada1918-Medium.ttf in Resources */,
 			);
@@ -458,6 +521,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2D02E48E1E0B4A5D006451C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52370FD928EE4FFC00486248 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -503,22 +573,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		175DD53F2F4863EE11B5FB1D /* AppLovinQualityService Updater */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "AppLovinQualityService Updater";
-			outputPaths = (
-				AppLovinQualityService/AppLovinQualityServicePlugin.app,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "ruby \"AppLovinQualityServiceSetup-ios.rb\" update";
-		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -533,24 +587,21 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		665F4B73CA6B985B0B1FA35B /* AppLovinQualityService */ = {
+		4249735D00155158F0670E18 /* AppLovinQualityService Updater */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				AppLovinQualityService/AppLovinQualityServicePlugin.app,
-				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
-				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
-				"$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/UnityFramework.framework/UnityFramework",
 			);
-			name = AppLovinQualityService;
+			name = "AppLovinQualityService Updater";
 			outputPaths = (
-				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_FOLDER_PATH)/.AppLovinQualityService/AppLovinQualityService.json",
+				AppLovinQualityService/AppLovinQualityServicePlugin.app,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "AppLovinQualityService/AppLovinQualityServicePlugin.app/Contents/MacOS/AppLovinQualityServicePlugin \"AppLovinQualityServiceSetup-ios.rb\"";
+			shellScript = "ruby \"AppLovinQualityServiceSetup-ios.rb\" update";
 		};
 		7DC96B26A7960F4A7F13FD3B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -675,6 +726,25 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D2931B8FA207D52445CC7730 /* AppLovinQualityService */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				AppLovinQualityService/AppLovinQualityServicePlugin.app,
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+				"$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/UnityFramework.framework/UnityFramework",
+			);
+			name = AppLovinQualityService;
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_FOLDER_PATH)/.AppLovinQualityService/AppLovinQualityService.json",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "AppLovinQualityService/AppLovinQualityServicePlugin.app/Contents/MacOS/AppLovinQualityServicePlugin \"AppLovinQualityServiceSetup-ios.rb\"";
 		};
 		E0B7D734C0E6EE0D90FAA4DF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -819,6 +889,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52370FD728EE4FFC00486248 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52370FDE28EE4FFC00486248 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -831,6 +909,11 @@
 			isa = PBXTargetDependency;
 			target = 2D02E47A1E0B4A5D006451C7 /* comic-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
+		};
+		52370FE128EE4FFC00486248 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52370FDA28EE4FFC00486248 /* ImageNotification */;
+			targetProxy = 52370FE028EE4FFC00486248 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -890,6 +973,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D2829369B83EA7F3B13D1EB2 /* Pods-comic.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = comic/comic.entitlements;
@@ -929,11 +1013,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4D823D899B25E627C607986B /* Pods-comic.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = comic/comic.entitlements;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = 4YMZR83M85;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(inherited)",
@@ -953,6 +1039,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = manga.reader.com.top.manga;
 				PRODUCT_NAME = comic;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1080,6 +1167,86 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/comic-tvOS.app/comic-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Release;
+		};
+		52370FE428EE4FFC00486248 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4YMZR83M85;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageNotification/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ImageNotification;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = manga.reader.com.top.manga.ImageNotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52370FE528EE4FFC00486248 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageNotification/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ImageNotification;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = manga.reader.com.top.manga.ImageNotification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1245,6 +1412,15 @@
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
 				2D02E49A1E0B4A5E006451C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52370FE628EE4FFC00486248 /* Build configuration list for PBXNativeTarget "ImageNotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52370FE428EE4FFC00486248 /* Debug */,
+				52370FE528EE4FFC00486248 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -42,7 +42,7 @@ export default function ReadDow() {
         inputRange: [0, Math.round(height / 13)],
         outputRange: [0, Math.round(height / 13)]
     })
-    const [headerStatus,setHeaderStatus]= useState(true);
+    const [headerStatus, setHeaderStatus] = useState(true);
     const router = useRoute<RootRouteProps<'ReadDow'>>();
     const { item__ } = router.params
 
@@ -53,9 +53,9 @@ export default function ReadDow() {
     const color = changeBackground_(isDarkMode)
     const color_ = changeBackground__(isDarkMode)
     const color__ = changeBackground(isDarkMode)
-    useEffect(()=>{
+    useEffect(() => {
         setHeaderStatus(false);
-    },[])
+    }, [])
     return (
         <View style={{ backgroundColor: color, flex: 1 }}>
             <FocusAwareStatusBar
@@ -64,8 +64,8 @@ export default function ReadDow() {
                 translucent={true}
                 backgroundColor='transparent'
             />
-            <Header ref={headerRef} {...{ translateY, name: item__.nameChap }}></Header>
-            <ListImage {...{ isDarkMode,imagesList: item__.data, scrollY, scrollYFooter, isTurn, color_ }}/>
+            <Header ref={headerRef} {...{ translateY, name: item__.nameChap, isDownload: true }}></Header>
+            <ListImage   {...{ isDarkMode, imagesList: item__.data, scrollY, scrollYFooter, isTurn, color_, headerRef,footerRef }} />
             <Footer {...{ translateYFooter, _setModalVisible }}></Footer>
             <Modals {...{ color_, color__, isTurn, modalVisible, _setModalVisible }}></Modals>
         </View>
