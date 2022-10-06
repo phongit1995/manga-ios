@@ -84,7 +84,8 @@ const ListImage: FunctionComponent<listImageProps> = ({
                 scrollY.setValue(-Math.round(height / 9.5));
                 scrollYFooter.setValue(-Math.round(height / 13))
             } else {
-                let getIndex = count > imagesList?.length ? imagesList?.length - 1 : count++
+                const data = imagesList?.length != 0 ? JSON.parse(imagesList)?.length : 0
+                let getIndex = count >= data - 1? data - 1 : count++
                 carousel.current.scrollToIndex({ index: getIndex, animated: true });
             }
         }
@@ -121,6 +122,9 @@ const ListImage: FunctionComponent<listImageProps> = ({
                             if (isTurn === 0) {
                                 let newIndex = Math.round(e.nativeEvent.contentOffset.y / (SCREEN_HEIGHT / 2));
                                 setCountScroll(newIndex)
+                            }else{
+                                let newIndex = Math.round(e.nativeEvent.contentOffset.x / width);
+                                setCount(newIndex + 1)
                             }
                         }}
                         onScrollToIndexFailed={(error) => {
