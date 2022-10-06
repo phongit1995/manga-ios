@@ -128,8 +128,8 @@ const App = () => {
   // Setup notification
   React.useEffect(() => {
     stores.dispatch(dispatchNetWork())
-    // fcmService.registerAppWithFCM();
-    // fcmService.register(OnRegisterNotification, onNotification, onOpenNotification);
+    fcmService.registerAppWithFCM();
+    fcmService.register(OnRegisterNotification, onNotification, onOpenNotification);
     localNotificationService.configure(onOpenNotification);
     admob().setRequestConfiguration({ maxAdContentRating: MaxAdContentRating.PG, tagForChildDirectedTreatment: true, tagForUnderAgeOfConsent: true }).then(() => { console.log("Success Admod") }).catch((error) => console.log("Error ADMOD"));
     const backHandler = BackHandler.addEventListener('hardwareBackPress', (): any => {

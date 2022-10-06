@@ -23,9 +23,7 @@ export default () => {
   return (
     <Tab.Navigator
       tabBar={props => <NavigationBar {...props} />}
-      screenOptions={{
-        headerShown: false,
-      }}
+      tabBarOptions={tabBarOptions}
       
     >
       <Tab.Screen
