@@ -1,4 +1,4 @@
-import {Platform} from 'react-native';
+import {Platform, StatusBar} from 'react-native';
 import AppLovinMAX from 'react-native-applovin-max';
 import * as config from './../../config';
 const INTERSTITIAL_AD_UNIT_ID = Platform.select({
@@ -56,6 +56,7 @@ export class ApplovinService {
       analytics().logEvent('APPLOVIN_HIDDEN_ADS_SUCCESS');
       this.loadAds();
       this.navigation(); //chuyển sang  màn hình B đóng ads
+      StatusBar.setHidden(false);
     });
   }
   public loadAds() {

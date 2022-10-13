@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import { View, StyleSheet, Animated } from 'react-native';
+import { View, StyleSheet, Animated, StatusBar } from 'react-native';
 import { getDetailChapter } from './../../api/comic'
 import { useRoute, RouteProp } from '@react-navigation/native';
 import Modals from './Modals';
@@ -112,13 +112,14 @@ export default function ReadComic() {
     const color_ = changeBackground__(isDarkMode)
     const color__ = changeBackground(isDarkMode)
     React.useEffect(()=>{
+        console.log('status bar',false);
         setStatusbar(false);
     },[])
     
     return (
         <>
 
-            <FocusAwareStatusBar
+            <StatusBar
                 barStyle="light-content"
                 hidden={statusbar}
                 translucent={true}

@@ -1,6 +1,6 @@
 import * as types from '../constants/FunctionConstants';
 const initialState = {
-    isDarkMode: false,
+    isDarkMode: true,
     numberLight: 0,
     isPremium: false,
     isTurn: 0,

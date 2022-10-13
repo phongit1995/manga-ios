@@ -376,7 +376,7 @@ PODS:
     - React-Core
   - RNCAsyncStorage (1.15.0):
     - React-Core
-  - RNCMaskedView (0.1.10):
+  - RNCMaskedView (0.1.11):
     - React
   - RNCPicker (1.9.10):
     - React-Core
@@ -707,7 +707,7 @@ SPEC CHECKSUMS:
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
   RNCAsyncStorage: 2d54c86810ecae76f14c1e466f941ec120a54aff
-  RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
+  RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
   RNCPicker: 77183d9b1cd80ae55505322f8ad09ba0036e29ba
   RNCPushNotificationIOS: 61a7c72bd1ebad3568025957d001e0f0e7b32191
   RNDeviceInfo: 9538a884f862fe4aa0d7cead9f34e292d41ba8f6

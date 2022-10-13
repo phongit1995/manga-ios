@@ -26,6 +26,7 @@ const Header: FunctionComponent<headerProps> = ({ setModalVisible }) => {
                 <TouchableOpacity
                     activeOpacity={0.7}
                     onPress={() => navigation.goBack()}
+                    style={{paddingHorizontal:10}}
 
                 >
                     <FastImage source={iconBack} style={styles.imgIcon}></FastImage>
